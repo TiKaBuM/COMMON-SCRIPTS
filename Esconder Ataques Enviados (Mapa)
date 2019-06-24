@@ -1,12 +1,11 @@
 javascript://----------------------------------------------------------------
-//Projeto:      Esconder Saques Retornando
+//Projeto:      Esconder Saques Enviados
 //Autor:        Paulo Pcappelli
 //Modified:     Lucas Servo
-//Versão:      2.1 - 24/11/2017
+//Versão:      2.0 - 24/11/2017
 //Changelog:
 //      > 1.0 - Lançamento
 //      > 2.0 - Modificado por Tikabum
-//      > 2.1 - Modificado por Tikabum
 //---------------------------------------------------------------
  
 if(game_data.player.premium === false) {
@@ -20,7 +19,7 @@ if(game_data.screen != 'map'){
 }
  
 setInterval(function(){
-    $("#map_container div:not('.map_border') img[src^='https://dsbr.innogamescdn.com/asset/bff34dfe/graphic//map/return.png']").each(function(i,e) {
+    $("#map_container div:not('.map_border') img[src^='https://dsbr.innogamescdn.com/asset/bff34dfe/graphic//map/attack.png']").each(function(i,e) {
         var aldeia = $(e).attr('id').replace('_0', '').replace('cmdicons', 'village');
         $(e).remove();
         $("#" + aldeia).remove();
