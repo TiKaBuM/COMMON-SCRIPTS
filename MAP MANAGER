@@ -1,0 +1,113 @@
+var get_options = localStorage.getItem("Map_Manager");
+    var options="";
+    if (get_options === null) {options = "Todos";}
+    else { options = ""+get_options+"";}
+    var supported_options =["Todos","Enviados","Retornando"];
+    var options_check = supported_options.indexOf(options);
+    if (options_check < 0) {UI.ErrorMessage('<font color=gold><b><center><u>## STRIKE TEAM ##</u></center></b></font> <br><br> A Opção Selecionada não está Disponível.', 5000);}
+    else {
+ var select_options = (function() {
+				    var select_options = {};
+    select_options.Todos= {
+        general:{
+        options_perfil:"id^='map_cmdicons_'",
+		options_cor:"",//#5577B3
+	},
+};
+    select_options.Enviados= {
+        general:{
+        options_perfil:"src^='https://dsbr.innogamescdn.com/asset/c754c2fd/graphic//map/v2_left.png'",
+		options_cor:"",//darkgreen
+	},
+};
+    select_options.Retornando= {
+        general:{
+        options_perfil:"src^='https://dsbr.innogamescdn.com/asset/c754c2fd/graphic//map/return.png'",
+		options_cor:"",//darkred
+	},
+};
+    return select_options[options];
+    }());
+    }
+
+var options_img='';
+        if (options=="Todos") {options_img ='<img title="Todos" style="cursor:help;" height="16px" width="16px" src="https://i.imgur.com/ykjYv2y.png">';}
+        else if (options=="Enviados") {options_img ='<img height="16px" style="cursor:help;" title="Enviados" width="16px" src="https://i.imgur.com/ngunqar.png">';}
+        else if (options=="Retornando") {options_img ='<img height="16px" style="cursor:help;" title="Retornando" width="16px" src="https://i.imgur.com/gat92GS.png">';}
+	var options_table = "";
+	options_table+='<div id="Select_Options" class="target-select clearfix vis float_left"><h4><font color='+select_options.general.options_cor+'><center> Seleção de opções</center></font></h4><table class="vis" style="width: 100%"><tbody>';
+	options_table+='<tr><td><font color='+select_options.general.options_cor+'><b>Clique para Trocar a Opção</b></font></td>';
+    options_table+='<td><font style="font-family: \'Arial Black\', Gadget, sans-serif;"><span id="openfilter2"><input type="button" value="Abrir Seleção de Opções" id="openfilterbut2" class="btn"></span><span id="closefilter2" style="display:none">';
+    options_table+='<input class="btn" type="button" value="Fechar Seleção de Opções" id="closefilterbut2"></span></td></tr>';
+	options_table+='<tr><td><font color='+select_options.general.options_cor+'><b>Opção Selecionada</b></font></td>';
+    options_table+='<td><span id="selectedone"><center>'+options_img+'</center></span><span id="columnfilter2" style="display:none" class="vis"><font size="2">';
+    options_table+='<br><br><center><font color='+select_options.general.options_cor+'><b><u>Opções Disponíveis</u></b></font></center>';
+    options_table+='<input type="radio"  name="Options" value="Todos" id="Option_All" ><img title="Esconder TODAS as Aldeias com Comandos \n\nBy TiKa" style="cursor:help;" height="16px" width="16px" src="https://i.imgur.com/ykjYv2y.png"><br>';
+    options_table+='<input type="radio"  name="Options" value="Enviados" id="Option_Sent" checked><img height="16px" style="cursor:help;" title="Esconder Aldeias com Comandos Enviados \n\nBy TiKa" width="16px" src="https://i.imgur.com/ngunqar.png"><br>';
+    options_table+='<input type="radio"  name="Options" value="Retornando" id="Option_Return" checked><img height="16px" style="cursor:help;" title="Esconder Aldeias com Comandos Retornando \n\nBy TiKa" width="16px" src="https://i.imgur.com/gat92GS.png"><br>';
+    options_table+='</span></td></tr>';
+    options_table+='</tbody></table></div>';
+if (! document.getElementById('Select_Options')){
+		$('#content_value').prepend(options_table);
+}
+
+       if (get_options == "Todos") {document.getElementById('Option_All').checked = true;}
+      else  if (get_options == "Enviados") {document.getElementById('Option_Sent').checked = true; }
+      else  if (get_options == "Retornando") {document.getElementById('Option_Return').checked = true; }
+         $("#Option_Sent").click(function(){
+	localStorage.setItem("Map_Manager","Enviados");
+location.reload();
+    });
+
+        $("#Option_Return").click(function(){
+	localStorage.setItem("Map_Manager","Retornando");
+location.reload();
+    });
+
+      $("#Option_All").click(function(){
+	localStorage.setItem("Map_Manager","Todos");
+location.reload();
+    });
+
+    $("#openfilterbut2").click(function(){
+        document.getElementById('columnfilter2').style.display="";
+		document.getElementById('openfilter2').style.display="none";
+		document.getElementById('closefilter2').style.display="";
+    });
+    $("#closefilterbut2").click(function(){
+        document.getElementById('columnfilter2').style.display="none";
+		document.getElementById('openfilter2').style.display="";
+		document.getElementById('closefilter2').style.display="none";
+    });
+
+if(game_data.screen != 'map'){
+    UI.InfoMessage('Script deve ser usado no mapa!', 3000, true);
+    end();
+}
+
+setInterval(function(){
+    $("#map_container div:not('.map_border') img["+select_options.general.options_perfil+"]").each(function(i,e) {
+        var aldeia = $(e).attr('id').replace('_0', '').replace('cmdicons', 'village');
+        $(e).remove();
+        $("#" + aldeia).remove();
+    });
+    }, 1);
+    // ==UserScript==
+// @name               MAP MANAGER
+// @include            https://*map*
+// @icon               https://i.imgur.com/lemb4pv.png
+// @version            3.2 (24/06/2019)
+// @updateURL
+// @downloadURL
+// @changelog          ⌛ PARA MOSTRAR/OCULTAR CLIQUE NA SETA AO LADO DO NÚMERO "818" NA LINHA ABAIXO! ⌛
+/*
+1.0 - Script do Paulo Pcappelli
+2.0 - Modificado para Esconder Apenas Saques Enviados
+2.1 - Modificado para Esconder Apenas Saques Retornando
+2.2 - Bugs identificados e Corrigidos
+2.3 - Script Compilado (3 em 1)
+3.0 - Tabela de opções Criada
+3.1 - Script Nomeado como Map Manager
+3.2 - Userscript Otimizado e Movido ao Fim do Script
+*/
+// ==/UserScript==
