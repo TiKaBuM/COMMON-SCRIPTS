@@ -97,8 +97,8 @@ setInterval(function(){
 // @include            https://*map*
 // @icon               https://i.imgur.com/lemb4pv.png
 // @version            3.2 (24/06/2019)
-// @updateURL
-// @downloadURL
+// @updateURL          https://raw.githubusercontent.com/TiKaBuM/COMMON-SCRIPTS/master/MAP%20MANAGER
+// @downloadURL        https://raw.githubusercontent.com/TiKaBuM/COMMON-SCRIPTS/master/MAP%20MANAGER
 // @changelog          ⌛ PARA MOSTRAR/OCULTAR CLIQUE NA SETA AO LADO DO NÚMERO "818" NA LINHA ABAIXO! ⌛
 /*
 1.0 - Script do Paulo Pcappelli
