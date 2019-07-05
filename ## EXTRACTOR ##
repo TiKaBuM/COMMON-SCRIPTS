@@ -1,0 +1,493 @@
+//⭐ CASO O SCRIPT PRECISE EXCLUIR OS ÍCONES DE COMANDO, A TABELA IRÁ FICAR UM POUCO ESTRANHA MAS IRÁ FUNCIONAR IGUAL
+//⭐ CASO NÃO ESTEJA CARREGANDO AS ALDEIAS TOTAIS DO JOGADOR ANTES DE EXECUTAR O SCRIPT, AUMENTE O TEMPO DE EXECUÇÃO
+//⭐ TODOS OS TEMPOS DE EXECUÇÃO DO SCRIPT SÃO COSTUMIZÁVEIS, AS LINHAS ESTARÃO INDICADAS POR UM "⭕"
+//⭐ EXISTEM TRÊS CONFIGURAÇÕES DE TEMPO ATIVAS QUE FUNCIONAM EM CONJUNTO, SÃO TODAS CUSTOMIZÁVEIS:
+//⏩ CARREGAMENTO DE ALDEIAS TOTAIS = CONFIGURADO PARA ATIVAR ASSIM QUE O SCRIPT É ABERTO
+//⏩ EXCLUSÃO DE ÍCONES DE COMANDO  = CONFIGURADO POR PADRÃO EM 5 SEGUNDOS
+//⏩ TEMPO DE EXECUÇÃO DO SCRIPT    = CONFIGURADO POR PADRÃO EM 7 SEGUNDOS
+//⭐ O SCRIPT IRÁ EXTRAIR O PERFIL DO JOGADOR EM FORMATO DE TABELA, PRONTO PARA COPIAR!
+//⭐ CASO O JOGADOR EM QUESTÃO NÃO TENHA OPONENTES DERROTADOS, O SCRIPT IRÁ PARAR
+//⭐ LEGENDA ABAIXO:
+/*
+⭐ = TÓPICO IMPORTANTE
+⏩ = SUBTÓPICO IMPORTANTE
+⛔ = NÃO ENCOSTE, IGNORE!
+⚫ = CUSTOMIZAÇÃO LIBERADA
+⚪ = MEXER APENAS SE TIVER CONSCIÊNCIA
+⭕ = CONFIGURAÇÕES DE TEMPO (MENSAGENS DE ERROR && TROCA DE ALDEIAS && COMANDOS EM GERAL)
+⚡ = INFORMAÇÃO ADICIONAL SOBRE CADA SEÇÃO CUSTOMIZÁVEL
+*/
+
+/* ⚫⚫⚫⚫⚫ INÍCIO DA SEÇÃO DE CONFIGURAÇÕES GERAIS ⚫⚫⚫⚫⚫ */
+
+
+/*⚡ DEFINA SE O SCRIPT ADICIONARÁ DATA E HORA DO SERVER  ⚡*/ var StrikeTime = true; // Será adicionada ao início do código uma tabela simples com data/hora puxadas diretamente do servidor do tw
+
+/*⚡ DEFINA SE O SCRIPT ADICIONARÁ GRÁFICOS DO TW MAPS    ⚡*/ var TribalMaps = true; // Serão Adicionados gráficos do Tribal Wars Maps ao fim da Tabela, já formatados em Spoiler
+
+/*⚡ DEFINA SE O SCRIPT ADICIONARÁ FORMATAÇÃO DA STRIKE   ⚡*/ var StrikeTeam = true; // Será adicionado o Emblema da Strike ao inicio da tabela, e o código de assinatura ao fim
+
+/*⚡ DEFINA SE O SCRIPT SERÁ OTIMIZADO PARA OPERAÇÕES     ⚡*/ var ModoOP = true; // O Modo OP irá te entregar uma tabela com todas as informações necessárias para Montar uma Operação em cima do Player selecionado
+
+/*⚡ DEFINA SE O SCRIPT DEVERÁ INCLUIR "CLAIM" NA TABELA  ⚡*/ var claim = true; // Claim é o código que mostra se a aldeia está reservada, e caso esteja reservada, por quem foi reservada.
+
+/*⚡ DEFINA SE O SCRIPT DEVERÁ MOSTRAR TODAS AS ALDEIAS   ⚡*/ var Todas_as_Aldeias = true; // Por padrão o TW só mostra as 100 primeiras aldeias no perfil do jogador.
+
+
+/* ⚫⚫⚫⚫⚫ FIM DA SEÇÃO DE CONFIGURAÇÕES GERAIS ⚫⚫⚫⚫⚫ */
+
+
+    /* ⛔⛔⛔⛔⛔ INICIO DO SCRIPT ⛔⛔⛔⛔⛔ */
+
+if (Todas_as_Aldeias)
+{
+$.getScript('https://drive.google.com/uc?export=download&id=1hkRnePBiwl8MS6EPdyRJiaxc-vbR69cV');
+}
+
+function trim(str) {
+return str.replace(/^\s+|\s+$/g,"");
+}
+//$(document).ready(function(){
+ //   $("td")[7].remove("[name='Funções']");
+//});
+/*var Funcao = true;
+
+if (Funcao)
+{
+    var funcaoerror = document.getElementById("content_value");
+    var table = funcaoerror.getElementsByTagName('table')[1];
+    var funcoes = table.getElementsByTagName('td')[7];
+    var found = false;
+    for (i = 0; i < funcoes.length && !found; i++)
+    {
+        var Error1 = funcoes[i].innerHTML.search("Funções") != -1;
+        var Error2 = funcoes[i].innerHTML.search("Funções:") != -1;
+        if (Error1 || Error2)
+        {
+            found = true;
+        }
+    }
+    if (found)
+    {
+if (found === true){table.getElementsByTagName('td')[7].parentNode.style.display = "none";}
+if (found === true){table.getElementsByTagName('td')[8].parentNode.style.display = "none";}
+}
+}*/
+
+setTimeout(function fnExecuteScript() {
+$(document).ready(function(){
+    $("td").remove("[style='white-space:nowrap']");
+    });
+/* ⭕ EXCLUSÃO DE ÍCONES DE COMANDO ⭕*/    },5000); /*⚡ SELECIONAR TEMPO PARA EXECUTAR O SCRIPT (1000 = 1 SEG) ⚡*/
+
+setTimeout(function fnExecuteScript() {
+    try {
+      var Func = prompt('O jogador em Questão tem Funções? \n\nResponda s ou n\n\n','');
+        if (Func === null || Func === "")
+        {
+            alert('Você Precisa Selecionar uma Resposta!');
+        }
+
+        /* ⚪⚪⚪ INÍCIO DO IF = "S" ⚪⚪⚪ */
+
+        if (Func == "s")
+        {
+if (typeof(claim) == "undefined")
+
+if(game_data.screen!='info_player') location.search = '?village='+ game_data.village.id + '&screen=info_player&id='+ game_data.player.id;
+var body = document.getElementById("content_value");
+var table = body.getElementsByTagName('table')[1];
+            if (TribalMaps)
+            {
+                var pageurlstrike = window.location.href;
+                var pageurl1 = pageurlstrike.split("=");
+                var pageid;
+            if (pageurl1[3] !== undefined) {
+                    pageid = pageurl1[3];
+            }
+            else {
+                    pageid = game_data.player.ally;
+            }
+                var pageurlstrike1 = pageurlstrike.split("//");
+                var pageurlstrike2 = pageurlstrike1[1].split("/");
+                var pageurlstrike3 = pageurlstrike1[1].split(".");
+                var pageurlstrike5 = pageurlstrike3[2].split("/");
+                var pageurlstrike4 = pageurlstrike3[1]+"."+pageurlstrike5[0];
+                var strike_market = game_data.market;
+                var main_url = pageurlstrike1[0]+"//"+pageurlstrike2[0]+game_data.link_base_pure;
+                var urlPrefix = "";
+            if (game_data.market == "en") {
+                    urlPrefix = "";
+            }
+
+            else {
+                urlPrefix = '.'+game_data.market;
+            }
+                MapId  = '[code][/code][spoiler=Gráfico Geral][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/player/'+pageid+'[/img][/spoiler]';
+                MapAld = '[spoiler=Gráfico de Pontos][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/p_player/'+pageid+'[/img][/spoiler]';
+                MapOda = '[spoiler=Gráfico de ODA][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/oda_player/'+pageid+'[/img][/spoiler]';
+                MapOdd = '[spoiler=Gráfico de ODD][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/odd_player/'+pageid+'[/img][/spoiler]';
+                MapOds = '[spoiler=Gráfico de ODS][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/ods_player/'+pageid+'[/img][/spoiler]';
+            }else{
+                MapId = '';
+                MapAld = '';
+                MapOda = '';
+                MapOdd = '';
+                MapOds = '';
+            }
+            if (StrikeTeam)
+                {
+                  StrikeImg = '[color=#FFF8E6]_______________________________________[/color][img]https://i.imgur.com/j3jpjYV.png[/img][code][/code]\n';
+                  StrikeAss = '____________[b][code]HURRA!![/code][/b] [url=https://forum.tribalwars.com.br/index.php?threads/br-88-strike-team.335215/page-5#post-3658161][color=#700505][code]STRIKE Team[/code][/color][/url]';
+                }else{
+                  StrikeImg = '';
+                  StrikeAss = '';
+                }
+              var serverTime = "[table][*][size=12][b]" + $("#serverDate").html() + "[/b] às [i]" + $("#serverTime").html() + "[/i][/size][/table][code][/code]";
+//            var ServerData = document.getElementById("serverDate");
+//            var ServerHora = document.getElementById("serverTime");
+            if (StrikeTime)
+            {
+                StrikeData = serverTime;
+            }else{
+                StrikeData = '';
+            }
+
+//var FarmMax = table.getElementsByTagName('th')[0];
+//FarmMax1 = game_data.link_base_pure + "ranking&mode=in_a_day&type=loot_vil&name=" + trim(FarmMax.textContent);
+
+var jogador = table.getElementsByTagName('th')[0];
+jogador.innerHTML = StrikeData + StrikeImg + '[table][**][color=#C1A264]___[/color][size=12][color=#700505]PLAYER[/color][/size][color=#C1A264]___[/color][\|\|][size=12]⭐[player]' + trim(jogador.textContent) + '[/player]⭐[/size][/**]';
+
+var pontos1 = table.getElementsByTagName('td')[1];
+pontos1.innerHTML = '[*]' + '⚫ [b]' + 'Pontuação ~' + '[/b]' + '[\|]';
+var pontos2 = table.getElementsByTagName('td')[2];
+pontos2.innerHTML = pontos2.innerHTML + '[/*]';
+
+var clss1 = table.getElementsByTagName('td')[3];
+clss1.innerHTML = '[*]' + '⚫ [b]' + '#Ranking ~' + '[/b]' + '[\|]';
+var clss2 = table.getElementsByTagName('td')[4];
+clss2.innerHTML = '[color=#ff0000][b]#' + clss2.innerHTML + '[/b][/color][/*]';
+
+var od1 = table.getElementsByTagName('td')[5];
+od1.innerHTML = '[*]' + '⚫ [b]' + 'OD Geral ~' + '[/b]' + '[\|]';
+var od2 = table.getElementsByTagName('td')[6];
+od2.innerHTML = od2.innerHTML + '[/*]';
+
+var funcoes1 = table.getElementsByTagName('td')[7];
+funcoes1.innerHTML = '[*]' + '⚫ [b]' + 'Funções ~' + '[/b]' + '[\|]';
+var funcoes2 = table.getElementsByTagName('td')[8];
+funcoes2.innerHTML = '[b]' + trim(funcoes2.textContent) + '[/b][/*]';
+
+var tribo1 = table.getElementsByTagName('td')[9];
+tribo1.innerHTML = '[*]' + '⚫ [b]' + 'Tribo ~' + '[/b]' + '[\|]';
+var tribo2 = table.getElementsByTagName('td')[10];
+tribo2.innerHTML = '[ally]' + trim(tribo2.textContent) + '[/ally][/*][/table]';
+aumentar = false;
+
+var strike1 = table.getElementsByTagName('td')[0];
+// Emblema Han Solo // strike1.innerHTML = '<center> <img style=width:"342px";height:"314"; src="https://i.imgur.com/w1klhtA.png"> </center>';
+/* Emblema Strike  */  strike1.innerHTML = '<center> <img src="https://i.imgur.com/j3jpjYV.png"> </center>';
+
+//if (table.getElementsByTagName('td')[0] !== null){table.getElementsByTagName('td')[0].parentNode.style.display = "none";}
+if (table.getElementsByTagName('td')[7] !== null){table.getElementsByTagName('td')[7].parentNode.style.display = "none";}
+if (table.getElementsByTagName('td')[8] !== null){table.getElementsByTagName('td')[8].parentNode.style.display = "none";}
+
+var table1 = body.getElementsByTagName('table')[2];
+
+// var strike1 = table1.getElementsByTagName('td')[3];
+// Emblema Han Solo // strike1.innerHTML = '<center> <img style=width:"342px";height:"314"; src="https://i.imgur.com/w1klhtA.png"> </center>';
+// Emblema Strike    strike1.innerHTML = '<center> <img src="https://i.imgur.com/j3jpjYV.png"> </center>';
+
+if (table1.getElementsByTagName('tr')[0] !== null){table1.getElementsByTagName('tr')[0].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[0] !== null){table1.getElementsByTagName('td')[0].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[1] !== null){table1.getElementsByTagName('td')[1].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[2] !== null){table1.getElementsByTagName('td')[2].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[3] !== null){table1.getElementsByTagName('td')[3].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[4] !== null){table1.getElementsByTagName('td')[4].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[5] !== null){table1.getElementsByTagName('td')[5].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[6] !== null){table1.getElementsByTagName('td')[6].parentNode.style.display = "none";}
+
+var table2 = body.getElementsByTagName('table')[3];
+
+table2 = $('table');
+for(i=0; i<table2.length; i++) {
+    if(table2[i].className=='main') {
+        if (ModoOP)
+                {
+                  OpTh = 'PONTOS[\|\|]RESERVA[\|\|]SITUAÇÃO[/**]';
+                  OpTd = '[\|][player]Player[/player]' + '[\|]:x:' + '[/*]';
+                }else{
+                  OpTh = 'PONTOS[/**]';
+                  OpTd = '[/*]';
+                }
+
+        sub = table2[i+4].getElementsByTagName('th');
+        sub[0].innerHTML = '[table][**]Nº[\|\|]';
+        sub[1].setAttribute('width','40');
+        sub[1].innerHTML = 'ALDEIA[\|\|]';
+        sub[2].setAttribute('width','220');
+        sub[2].innerHTML = OpTh;
+
+        if (claim === true) var codigo_bb = ["[\|][claim]", "[/claim]"];
+        else var codigo_bb = ["[\|][coord]", "[/coord]"];
+
+        sub = table2[i+4].getElementsByTagName('td');
+        for(j=0; j<sub.length; j++) {
+            if (sub[j].textContent.indexOf('Exibir todas outras') > -1)
+            {
+            sub[j].innerHTML = '[/table]' + MapId + MapOda + MapOdd + MapOds + MapAld + StrikeAss;
+            aumentar = true;
+            }
+            else
+            {
+            sub[j].innerHTML = '[*]⚡' + (j / 3 + 1);
+            sub[++j].innerHTML = codigo_bb[0] + sub[j++].innerHTML + codigo_bb[1];
+            sub[+j].innerHTML = '[\|]' + sub[+j].innerHTML + OpTd;
+            }
+        }
+        if (aumentar === false){
+        var endtable = document.createElement('tr');
+        endtable.innerHTML = '<tr><td colspan="3">[/table]' + MapId + MapOda + MapOdd + MapOds + MapAld + StrikeAss + '</td></tr>';
+        document.getElementById("villages_list").getElementsByTagName("tbody")[0].appendChild(endtable);
+        }
+        break;
+    }
+}
+}
+        /* ⚪⚪⚪ INÍCIO DO IF = "N" ⚪⚪⚪ */
+
+        if(Func == "n")
+        {
+if (typeof(claim) == "undefined")
+
+if(game_data.screen!='info_player') location.search = '?village='+ game_data.village.id + '&screen=info_player&id='+ game_data.player.id;
+var body = document.getElementById("content_value");
+var table = body.getElementsByTagName('table')[1];
+            if (TribalMaps)
+            {
+                var pageurlstrike = window.location.href;
+                var pageurl1 = pageurlstrike.split("=");
+                var pageid;
+            if (pageurl1[3] !== undefined) {
+                    pageid = pageurl1[3];
+            }
+            else {
+                    pageid = game_data.player.ally;
+            }
+                var pageurlstrike1 = pageurlstrike.split("//");
+                var pageurlstrike2 = pageurlstrike1[1].split("/");
+                var pageurlstrike3 = pageurlstrike1[1].split(".");
+                var pageurlstrike5 = pageurlstrike3[2].split("/");
+                var pageurlstrike4 = pageurlstrike3[1]+"."+pageurlstrike5[0];
+                var strike_market = game_data.market;
+                var main_url = pageurlstrike1[0]+"//"+pageurlstrike2[0]+game_data.link_base_pure;
+                var urlPrefix = "";
+            if (game_data.market == "en") {
+                    urlPrefix = "";
+            }
+
+            else {
+                urlPrefix = '.'+game_data.market;
+            }
+                MapId  = '[code][/code][spoiler=Gráfico Geral][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/player/'+pageid+'[/img][/spoiler]';
+                MapAld = '[spoiler=Gráfico de Pontos][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/p_player/'+pageid+'[/img][/spoiler]';
+                MapOda = '[spoiler=Gráfico de ODA][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/oda_player/'+pageid+'[/img][/spoiler]';
+                MapOdd = '[spoiler=Gráfico de ODD][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/odd_player/'+pageid+'[/img][/spoiler]';
+                MapOds = '[spoiler=Gráfico de ODS][img]http://'+pageurlstrike3[0]+'.tribalwarsmap.com/'+game_data.market+'/graph/ods_player/'+pageid+'[/img][/spoiler]';
+            }else{
+                MapId = '';
+                MapAld = '';
+                MapOda = '';
+                MapOdd = '';
+                MapOds = '';
+            }
+            if (StrikeTeam)
+                {
+                  StrikeImg = '[color=#FFF8E6]_______________________________________[/color][img]https://i.imgur.com/j3jpjYV.png[/img][code][/code]';
+                  StrikeAss = '____________[b][code]HURRA!![/code][/b] [url=https://forum.tribalwars.com.br/index.php?threads/br-88-strike-team.335215/page-5#post-3658161][color=#700505][code]STRIKE Team[/code][/color][/url]';
+                }else{
+                  StrikeImg = '';
+                  StrikeAss = '';
+                }
+                          var serverTime = "[table][*][size=12][b]" + $("#serverDate").html() + "[/b] às [i]" + $("#serverTime").html() + "[/i][/size][/table][code][/code]";
+//            var ServerData = document.getElementById("serverDate");
+//            var ServerHora = document.getElementById("serverTime");
+            if (StrikeTime)
+            {
+                StrikeData = serverTime;
+            }else{
+                StrikeData = '';
+            }
+
+//var FarmMax = table.getElementsByTagName('th')[0];
+//FarmMax1 = game_data.link_base_pure + "ranking&mode=in_a_day&type=loot_vil&name=" + trim(FarmMax.textContent);
+
+var jogador = table.getElementsByTagName('th')[0];
+jogador.innerHTML = StrikeData + StrikeImg + '[table][**][color=#C1A264]___[/color][size=12][color=#700505]PLAYER[/color][/size][color=#C1A264]___[/color][\|\|][size=12]⭐[player]' + trim(jogador.textContent) + '[/player]⭐[/size][/**]';
+
+var pontos1 = table.getElementsByTagName('td')[1];
+pontos1.innerHTML = '[*]' + '⚫ [b]' + 'Pontuação ~' + '[/b]' + '[\|]';
+var pontos2 = table.getElementsByTagName('td')[2];
+pontos2.innerHTML = pontos2.innerHTML + '[/*]';
+
+var clss1 = table.getElementsByTagName('td')[3];
+clss1.innerHTML = '[*]' + '⚫ [b]' + '#Ranking ~' + '[/b]' + '[\|]';
+var clss2 = table.getElementsByTagName('td')[4];
+clss2.innerHTML = '[color=#ff0000][b]#' + clss2.innerHTML + '[/b][/color][/*]';
+
+var od1 = table.getElementsByTagName('td')[5];
+od1.innerHTML = '[*]' + '⚫ [b]' + 'OD Geral ~' + '[/b]' + '[\|]';
+var od2 = table.getElementsByTagName('td')[6];
+od2.innerHTML = od2.innerHTML + '[/*]';
+
+//var funcoes1 = table.getElementsByTagName('td')[7];
+//funcoes1.innerHTML = '[*]' + '⚫ [b]' + 'Funções ~' + '[/b]' + '[\|]';
+//var funcoes2 = table.getElementsByTagName('td')[8];
+//funcoes2.innerHTML = '[b]' + trim(funcoes2.textContent) + '[/b][/*]';
+
+var tribo1 = table.getElementsByTagName('td')[7];
+tribo1.innerHTML = '[*]' + '⚫ [b]' + 'Tribo ~' + '[/b]' + '[\|]';
+var tribo2 = table.getElementsByTagName('td')[8];
+tribo2.innerHTML = '[ally]' + trim(tribo2.textContent) + '[/ally][/*][/table]';
+aumentar = false;
+
+ var strike1 = table.getElementsByTagName('td')[0];
+// Emblema Han Solo // strike1.innerHTML = '<center> <img style=width:"342px";height:"314"; src="https://i.imgur.com/w1klhtA.png"> </center>';
+/* Emblema Strike  */  strike1.innerHTML = '<center> <img src="https://i.imgur.com/j3jpjYV.png"> </center>';
+
+//if (table.getElementsByTagName('td')[0] !== null){table.getElementsByTagName('td')[0].parentNode.style.display = "none";}
+//if (table.getElementsByTagName('td')[7] !== null){table.getElementsByTagName('td')[7].parentNode.style.display = "none";}
+//if (table.getElementsByTagName('td')[8] !== null){table.getElementsByTagName('td')[8].parentNode.style.display = "none";}
+
+var table1 = body.getElementsByTagName('table')[2];
+
+// var strike1 = table1.getElementsByTagName('td')[3];
+// Emblema Han Solo // strike1.innerHTML = '<center> <img style=width:"342px";height:"314"; src="https://i.imgur.com/w1klhtA.png"> </center>';
+// Emblema Strike    strike1.innerHTML = '<center> <img src="https://i.imgur.com/j3jpjYV.png"> </center>';
+
+if (table1.getElementsByTagName('tr')[0] !== null){table1.getElementsByTagName('tr')[0].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[0] !== null){table1.getElementsByTagName('td')[0].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[1] !== null){table1.getElementsByTagName('td')[1].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[2] !== null){table1.getElementsByTagName('td')[2].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[3] !== null){table1.getElementsByTagName('td')[3].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[4] !== null){table1.getElementsByTagName('td')[4].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[5] !== null){table1.getElementsByTagName('td')[5].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[6] !== null){table1.getElementsByTagName('td')[6].parentNode.style.display = "none";}
+//if (table1.getElementsByTagName('td')[7] !== null){table1.getElementsByTagName('td')[7].parentNode.style.display = "none";}
+
+var table2 = body.getElementsByTagName('table')[3];
+
+table2 = $('table');
+for(i=0; i<table2.length; i++) {
+    if(table2[i].className=='main') {
+        if (ModoOP)
+                {
+                  OpTh = 'PONTOS[\|\|]RESERVA[\|\|]SITUAÇÃO[/**]';
+                  OpTd = '[\|][player]Player[/player]' + '[\|]:x:' + '[/*]';
+                }else{
+                  OpTh = 'PONTOS[/**]';
+                  OpTd = '[/*]';
+                }
+
+        sub = table2[i+4].getElementsByTagName('th');
+        sub[0].innerHTML = '[table][**]Nº[\|\|]';
+        sub[1].setAttribute('width','40');
+        sub[1].innerHTML = 'ALDEIA[\|\|]';
+        sub[2].setAttribute('width','220');
+        sub[2].innerHTML = OpTh;
+
+        if (claim === true) var codigo_bb = ["[\|][claim]", "[/claim]"];
+        else var codigo_bb = ["[\|][coord]", "[/coord]"];
+
+        sub = table2[i+4].getElementsByTagName('td');
+        for(j=0; j<sub.length; j++) {
+            if (sub[j].textContent.indexOf('Exibir todas outras') > -1)
+            {
+            sub[j].innerHTML = '[/table]' + MapId + MapOda + MapOdd + MapOds + MapAld + StrikeAss;
+            aumentar = true;
+            }
+            else
+            {
+            sub[j].innerHTML = '[*]⚡' + (j / 3 + 1);
+            sub[++j].innerHTML = codigo_bb[0] + sub[j++].innerHTML + codigo_bb[1];
+            sub[+j].innerHTML = '[\|]' + sub[+j].innerHTML + OpTd;
+            }
+        }
+        if (aumentar === false){
+        var endtable = document.createElement('tr');
+        endtable.innerHTML = '<tr><td colspan="3">[/table]' + MapId + MapOda + MapOdd + MapOds + MapAld + StrikeAss + '</td></tr>';
+        document.getElementById("villages_list").getElementsByTagName("tbody")[0].appendChild(endtable);
+        }
+        break;
+    }
+}
+}
+void (0);
+}
+    catch (objError) {
+        var dbgMsg = "O Jogador em Questão Precisa Ter Oponentes Derrotados: " + String(objError.message || objError);
+        /*
+        fnDebugMessage(dbgMsg);
+        */
+        alert(dbgMsg);
+}
+/* ⭕ TEMPO DE EXECUÇÃO DO SCRIPT ⭕*/}, 7000); /*⚡ SELECIONAR TEMPO PARA EXECUTAR O SCRIPT (1000 = 1 SEG) ⚡*/
+
+/* ⛔⛔⛔⛔⛔ FIM DO SCRIPT ⛔⛔⛔⛔⛔ */
+
+// ==UserScript==
+// @name               ## EXTRACTOR ##
+// @namespace          https://pastebin.com/raw/Uvzza56i
+// @icon               https://i.imgur.com/l9h1h0m.png
+//⭐ESCOLHA SEU ÍCONE  https://pastebin.com/raw/wpcDVCdE
+// @author             TiKa (Edited)
+// @include            https://br*.tribalwars.com.br/*&screen=info_player*
+// @version            5.8 (12/04/2018)
+// @updateURL          https://pastebin.com/raw/Uvzza56i
+// @downloadURL        https://pastebin.com/raw/Uvzza56i
+// @description        Han Solo com sua Incrível Intuição é Capaz de Extrair o Perfil de qualquer um!
+// @changelog          ⌛ PARA MOSTRAR/OCULTAR CLIQUE NA SETA AO LADO DO NÚMERO "149" NA LINHA ABAIXO! ⌛
+/*
+1.0 - Script Obsoleto (Autor Desconhecido)
+2.0 - Corrigido posiconamento de Células, Colunas e Linhas do Script
+2.1 - Tabela de Ações Ocultada!
+2.2 - Ocultado Mini Mapa do Perfil
+2.3 - Códigos de Tabela Otimizados!
+2.4 - Corrigida a Variável "Claim"
+2.5 - Design da Tabela Otimizado!
+2.6 - Nomes, Ícones e Emoticons Otimizados
+2.7 - Adicionada Variável "Todas_as_Tropas"
+2.8 - Adicionada Função de Tempo para Execução do Script (Definida em 5 Segundos)
+2.9 - Adicionadas Legendas, Tópicos e Informações Adicionais
+3.0 - Script Apelidado como ## EXTRACTOR ##
+3.1 - Adicionadas Configuração de Tempo de Execução (⭕)
+3.2 - Adicionado Ícone e Página com Ícones Pré-Selecionados para Facilidade de Personalização
+3.3 - Adicionada Descrição
+3.4 - Códigos para Atualização Automática Incluídos!
+3.5 - Script Revisado, Informações e Erros de Ortografia Corrigidos!
+3.6 - UserScript Movido ao Fim do Código
+3.7 - Adicionado Emblema da Strike
+3.8 - Script Revisado, Otimizado e Informações Adicionais Corrigidas
+3.9 - Adicionado "If This" com Prompt para a parte de Funções
+4.0 - Corrigidos Bugs na Segunda Tabela
+4.1 - Emblema da Strike passado à Primeira Tabela
+4.2 - Encontrado Bug nas Céluas da Terceira Tabela quando Existe algum Comando nas Aldeias
+4.3 - Adicionado Código para Exclusão de Ícones de Comando
+4.4 - Código de Exlcusão de Ícones de Comando Otimizado para Exclusão da TD!
+4.5 - Corrigido Bug na Terceira Tabela
+4.6 - Informações Adicionais Revisadas e Otimizadas!
+4.7 - Terceira Tabela Otimizada Para Formação de Operações
+4.8 - Adicionado Var "Modo OP"! Podendo ser Desativada, a Gosto do Usuário
+4.9 - Adicionado um If à Pergunta de Funções, Bloqueando a Execução do Script caso deixe Sem Resposta e Entregando uma Mensagem de Erro
+5.0 - Adicionada Var "StrikeTeam"! Podendo ser Desativada, a Gosto do Usuário
+5.1 - Adicionada Var "TribalMap"s! Podendo ser Desativada, a Gosto do Usuário
+5.2 - Var "StrikeTeam" Otimizada!
+5.3 - Script Revisado, Erros Ortográficos e Informações Adicionais Corrigidos!
+5.4 - Corrigido Bug onde o Script Bugava com a Variável "TribalMaps" Desativada!
+5.5 - Adicionados Gráficos de Id e de ODS!
+5.6 - Adicionada Tabela de Data && Hora!
+5.7 - Corrigido Bug no StrikeData
+5.8 - Corrigido Bug no StrikeMaps
+*/
+// ==/UserScript==
