@@ -43,7 +43,7 @@ var Tsalactive = location.href.indexOf('info_ally') > -1;
 var Tsalactive1 = location.href.indexOf('info_player') > -1;
 var Tsalactive2 = location.href.indexOf('info_member') > -1;
 if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
-    var contact_url = "https://forum.tribalwars.net/index.php?members/tsalkapone.114063/";
+    var contact_url = "https://forum.tribalwars.com.br/index.php?members/tikabum.58522/";
     var content = '<div style=max-width:1000px;>' +
         '<h2 class="popup_box_header"><center><u><font color="darkred">## Estatísticas de Jogadores e Tribos ##</font></u></center></h2>' +
         '<hr><p><center><font color=maroon><b>Este Script será ativado no Perfil de um Jogador, de uma Tribo ou na Lista de Membros da Tribo.</b></font></center></p>' +
@@ -51,7 +51,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
         '<br><br><center><input type="button" class="btn evt-confirm-btn btn-confirm-yes" id="go_man1" value="Vá para o Ranking de Jogadores">&emsp;' +
         '<input type="button" class="btn evt-confirm-btn btn-confirm-yes" id="go_man2" value="Vá para o Ranking de Tribos">&emsp;' +
         '<input type="button" class="btn evt-cancel-btn btn-confirm-no" id="close_this" value="Não"></center>' +
-        '<br><br><hr><center><img class="tooltip-delayed" title="<font color=darkred>## Estatísticas de Jogadores e Tribos ##</font>" src="https://dl.dropboxusercontent.com/s/dt6t7jl1dqkjja9/Tsalkapone_joker.jpg" style="cursor:help; position: relative"></center><br><center><p>Sinta-se livre para Relatar qualquer BUG do Script ou Enviar Sugestões de Melhoria. <a href="' + contact_url + '" title="Tsalkapone profile" target="_blank">Tsalkapone</a>.</p></center>' +
+        '<br><br><hr><center><img class="tooltip-delayed" title="<font color=darkred>## Estatísticas de Jogadores e Tribos ##</font>" src="https://i.imgur.com/RrAg5YW.gif" style="cursor:help; position: relative"></center><br><center><p>Sinta-se livre para Relatar qualquer BUG do Script ou Enviar Sugestões de Melhoria. <a href="' + contact_url + '" title="Perfil FTW" target="_blank">⚡ TiKa ⚡</a></p></center>' +
         '</div>';
     Dialog.show('tribe_player_stats_intro', content);
     $("#go_man1").click(function() {
@@ -110,12 +110,14 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
         }
 
         var graphs = '<table id="tsalkaponemagic" width="100%" class="vis"><tbody><tr><th colspan="2"><center><font color="black"><b>Gráficos Disponíveis</b></font></center></th></tr>';
-        graphs += '<tr><td><center><div id="spoiler"><input type="button" class="btn tsalbutton" value="TribalWarsMap.com" onclick="toggle_spoiler(this)"><div><span style="display:none">';
+        graphs += '<tr><td><center><div id="spoiler"><input type="button" class="btn tsalbutton" value="⭐ GRÁFICO GERAL ⭐" onclick="toggle_spoiler(this)"><div><span style="display:none">';
         graphs += '<img src="http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/player/' + pageid + '" title="TribalWarsMap.com"></span></div></div></center></td></tr><tr><td><center><div id="spoiler">';
         graphs += '<input type="button" class="btn tsalbutton" value="Gráfico de ODA" onclick="toggle_spoiler(this)"><div>';
         graphs += '<span style="display:none"><img src="http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/oda_player/' + pageid + '" title="TribalWarsMap.com"></span></div></div></center></td></tr><tr><td><center><div id="spoiler">';
         graphs += '<input type="button" class="btn tsalbutton" value="Gráfico de ODD" onclick="toggle_spoiler(this)"><div><span style="display:none">';
-        graphs += '<img src="http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/odd_player/' + pageid + '" title="TribalWarsMap.com"></span></div></div></td></tr>';
+        graphs += '<img src="http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/odd_player/' + pageid + '" title="TribalWarsMap.com"></span></div></td></tr><tr><td><center>';
+        graphs += '<input type="button" class="btn tsalbutton" value="Gráfico de ODS" onclick="toggle_spoiler(this)"><div><span style="display:none">';
+        graphs += '<img src="http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/ods_player/' + pageid + '" title="TribalWarsMap.com"></span></div></div></td></tr>';
         graphs += '<tr><th><center><font color="black"><b>Estatísticas Disponíveis</b></font></center></th></tr>';
         graphs += '<tr><td><a href="http://www' + urlPrefix + '.twstats.com/' + pageurltsal3[0] + '/index.php?page=player&id=' + pageid + '&utm_source=en&utm_medium=player&utm_campaign=dsref" target="_blank"><img src="graphic/welcome/ext.png"> Ir para o Perfil do TW~Stats</a></td></tr>';
         graphs += '<tr><td><a href="http://www' + urlPrefix + '.twstats.com/' + pageurltsal3[0] + '/index.php?page=player&id=' + pageid + '&mode=conquer_periods" target="_blank"><img src="graphic/welcome/ext.png"> Períodos de Conquistas</a></td></tr>';
@@ -147,9 +149,9 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tribeId = parseInt(theTribeTd.html().match(/id\=(\d+)/i)[1], 10);
         }
         var thePoints = playerTable.find("td:contains('Pontos:')").next("td").text();
-        var OD = playerTable.find("td:contains('Oponentes Derrotados:')").next("td").text();
+        var OD = playerTable.find("td:contains('Oponentes derrotados:')").next("td").text();
 
-        var lexpand = "Mostrar Todas as Sobras";
+        var lexpand = "Exibir todas outras";
 
 
         function tsalscripts() {
@@ -157,9 +159,9 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             var tsal = "";
 
             var tsalk = document.getElementById('taCoords').value;
-            var tsal3in = "[spoiler=Script de Fakes Nº1 - Coordenada Aleatória]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
-            tsal3in += "\n\n[spoiler=Script de Fakes Nº2 - Coordenada Consecutiva (Contínua)]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=Código do Script][code]javascript:var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};var Tsalkapone_coords='" + tsalk + "';var config={Tsalkapone_target:'Tsalkapone',Tsalkapone_repeat:1,Tsalkapone_cookieID:'fake'};$.getScript('https://dl.dropboxusercontent.com/s/jyufjpwbdo8h0id/Tsalkapone.Fake_Script_No2_ek.js');void 0;[/code][/spoiler][/spoiler]";
-            tsal3in += "\n\n[spoiler=Script de Fakes Nº3 - Coordenada Aleatória, Aríete e Catapulta Apenas]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:0,spear:0,axe:0,archer:0,light:0,marcher:0,heavy:0};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
+            var tsal3in = "[spoiler=⚡ Script de Fakes Nº1 - Coordenada Aleatória]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=⚫ Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
+            tsal3in += "\n[spoiler=⚡ Script de Fakes Nº2 - Coordenada Consecutiva (Contínua)]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=⚫ Código do Script][code]javascript:var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};var Tsalkapone_coords='" + tsalk + "';var config={Tsalkapone_target:'Tsalkapone',Tsalkapone_repeat:1,Tsalkapone_cookieID:'fake'};$.getScript('https://dl.dropboxusercontent.com/s/jyufjpwbdo8h0id/Tsalkapone.Fake_Script_No2_ek.js');void 0;[/code][/spoiler][/spoiler]";
+            tsal3in += "\n[spoiler=⚡ Script de Fakes Nº3 - Coordenada Aleatória, Aríete e Catapulta Apenas]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=⚫ Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:0,spear:0,axe:0,archer:0,light:0,marcher:0,heavy:0};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
             var tsal3 = "";
             tsal3 += tsal3in;
 
@@ -173,14 +175,14 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tsal4 += "javascript:var Tsalkapone_coords='" + tsalk + "';var snob=0;var spy=100; var ram=1e6;var catapult=0; var light=1e6; var heavy=0; var marcher=1e6;var axe=1e6;var spear=0; var archer=0; var sword=0; var Tsalkapone_script_title='Nuke';var Tsalkapone_cookieID='nuke1';$.getScript('https://dl.dropboxusercontent.com/s/uqon51aliz193wm/Tsalkapone.Nuke_Support_script_ek.js');void 0;";
 
 
-            var content = '<div style=max-width:1000px;>' +
-                '<h2 class="popup_box_header"><center><u><font color="red">Scripts Disponíveis <a href="' + game_data.link_base_pure + 'info_player&id=' + playerId + '" target="_blank">' + thePlayer + '</a>!</font></u></center></h2>' +
-                '<br><font color="black"><b>As coordenada usadas como Alvo nos Scripts a seguir serão mostradas na Área de Extração de Coordenadas</b></font>' +
-                '<hr><font color="maroon"><b>Script de Fakes Νο1</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal + '</textarea><br>' +
-                '<hr><font color="maroon"><b>Script de Fakes Νο2</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal2 + '</textarea><br>' +
-                '<hr><font color="maroon"><b>Script de NUKE (Selecionar Tropas)</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal4 + '</textarea><br>' +
-                '<hr><font color="maroon"><b>Scripts para Mensagens ou Postagens em Fórum</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal3 + '</textarea><br>' +
-                '<hr><center><img style="cursor:help" class="tooltip-delayed" title="<font color=darkred>Tsalkapone. Παραγωγή fake scripts από το προφίλ παίκτη</font>" src="https://dl.dropboxusercontent.com/s/dt6t7jl1dqkjja9/Tsalkapone_joker.jpg"></center><p><center>Sinta-se livre para Relatar qualquer BUG do Script ou Enviar Sugestões de Melhoria. <a href="' + contact_url + '" target="_blank">Tsalkapone.</a></center></p>' +
+            var content = '<div style=max-width:1500px;>' +
+                '<h2 class="popup_box_header"><center><font color="red">⭐ SCRIPTS ESSENCIAIS ⭐</font></center></h2>' +
+                '<br><font color="black"><b>As coordenada usadas como Alvo nos Scripts a seguir serão mostradas na Área de Extração de Coordenadas</b></font>\n' +
+                '<hr><font color="maroon"><b>⚡ Script de Fakes Νο1</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal + '</textarea><br>' +
+                '<hr><font color="maroon"><b>⚡ Script de Fakes Νο2</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal2 + '</textarea><br>' +
+                '<hr><font color="maroon"><b>⚡ Script de NUKE (Selecionar Tropas)</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal4 + '</textarea><br>' +
+                '<hr><font color="maroon"><b>⚡ Scripts para Mensagens ou Postagens em Fórum</b></font><br><textarea onFocus="this.select();" cols=100 rows=4>' + tsal3 + '</textarea><br>' +
+                '<hr><center><img style="cursor:help" class="tooltip-delayed" title="<font color=darkred>## STRIKE TEAM ##</font>" src="https://i.imgur.com/RrAg5YW.gif"></center><p><center>Sinta-se livre para Relatar qualquer BUG do Script ou Enviar Sugestões de Melhoria. <a href="' + contact_url + '" target="_blank">⚡ TiKa ⚡</a></center></p>' +
                 '</div>';
 
             Dialog.show('tsalkapone_syntetagmenes', content);
@@ -263,7 +265,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tsal_options += '<tr><td>Adicionar [claim] nas Coordenadas</td><td><center><input id="tsal_claim" type="checkbox"></center></td><td><center><input id="color2" type="color" value="#4205C5"></center></td></tr>';
             tsal_options += '<tr><td>Adicionar Pontuação das Aldeias</td><td><center><input id="check_points" type="checkbox" ></center></td><td><center><input id="color3" type="color" value="#2E8E02"></center></td></tr>';
             tsal_options += '<tr><td>Adicionar Planejamento de Noblagem em cada Linha</td><td><center><input id="check_reserve_par" type="checkbox"></center></td><td><center><input id="color4" type="color" value="#FF0000"></center></td></tr>';
-            tsal_options += '<tr><td>Adicionar Nova Coluna</td><td><input id="tsal_newcol" type="checkbox">&nbsp;Ativar';
+            tsal_options += '<tr><td>Adicionar Nova Coluna</td><td><input id="tsal_newcol" onchange="tsal_check();" type="checkbox">&nbsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Você precisa Ativar esta Opção para Adiconar uma nova Coluna</span></span>&nbsp;Ativar';
             tsal_options += '<br><input id="tsal_act1" onchange="tsal_check();" type="checkbox">&nbsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Adicionar [player] em TODAS as Linhas de uma Coluna Específica.</span></span>&nbsp;[player] TAG';
             tsal_options += '<br><input id="tsal_act2"  onchange="tsal_check();" type="checkbox">&nbsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Adicionar [ally] em TODAS as Linhas de uma Coluna Específica.</span></span>&nbsp;[ally] TAG';
             tsal_options += '<br><input id="col_title"  type="text" size="6" placeholder="Título" value="">&nbsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Inserir o Título da Coluna em Específico.</span></span>&nbsp;Título';
@@ -276,7 +278,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tsal_options += '</td></tr>';
 
             var tsalin = '<br /><table id="tableOptions" class="vis " width="100%"><tr><th colspan="3"><center><font color="black"><b>Designer de Tabela</b></font></center></th></tr><tr><th colspan="3"><center><span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Defina as Colunas da Tabela e seu Contexto.<br> Você podera Adicionar uma Cor para cada Título.</span></span>&emsp;<font color="darkred"><b>Opções Disponíveis</b></font></center></th></tr>' + tsal_options;
-            tsalin += '<br /><table id="tableText" class="vis " width="100%"><tr><th colspan="2"><center><font color="darkred"><b><span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">O código a seguir é Compatível com o Fórum da Tribo e Bloco de Notas.</span></span>&nbsp;Código de Tabela</b></font></center></th></tr>' + '<tr><td>';
+            tsalin += '<br /><table id="tableText" class="vis " width="100%"><tr><th colspan="2"><center><font color="darkred"><b><span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">O Código a seguir é Compatível com o Fórum da Tribo e o Bloco de Notas.</span></span>&nbsp;Código de Tabela</b></font></center></th></tr>' + '<tr><td>';
             tsalin += '<input type="button" id="button_generate" class="btn tsalbutton" value="Gerar Código de Tabela" /></td><td><textarea rows="10" cols="60" id="text_area" name="text_area" onfocus="select();" value=""></textarea></td></tr>';
             tsalin += '<tr><td colspan="2"><center><span class="tsalkembed1"><img width="20px;" src="https://dl.dropboxusercontent.com/s/s9swak86tirwdpd/Tsalkapone.%20Warning.gif">&emsp;ATENÇÃO: Você não pode postar Textos/Tableas que contenham 1.000 ou mais <b>]</b> (Colchetes)</span></center></td></tr></table>';
 
@@ -285,9 +287,9 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tsalcell += '<tr><th colspan="3"><center><b><font color="maroon">Descrição</font></b></center></th>';
             tsalcell += '<th><center><b><font color="maroon">Ativar</font></b></center></th>';
             tsalcell += '<th><center><b><font color="maroon">Cor do Título</font></b></center></th></tr>';
-            tsalcell += '<tr><td>Título Principal</td><td colspan="2"><center>Texto<br><textarea cols="50" rows="2" id="k5">Reivindique as Aldeias que você quer Conquistar, escrevendo suas Coordenadas ou seu Número na Lista</textarea></center></td><td><center><input type="checkbox" id="plan8" checked></center></td><td><center><b><input id="col11" type="color" value="#009F05"></center></td></tr>';
+            tsalcell += '<tr><td>Título Principal</td><td colspan="2"><center>Texto<br><textarea cols="50" rows="2" id="k5">[color=#FFF8E6]________________________________________[/color][img]https://i.imgur.com/j3jpjYV.png[/img][code][/code]</textarea></center></td><td><center><input type="checkbox" id="plan8" checked></center></td><td><center><b><input id="col11" type="color" value="#009F05"></center></td></tr>';
             tsalcell += '<tr><td colspan="3">Adicionar Cor e [b] em toda numeração</td><td><center><input type="checkbox" id="plan1" checked></center></td><td><center><input id="col1" type="color" value="#FF0000"></center></td></tr>';
-            tsalcell += '<tr><td colspan="3">Abrir Scripts de Fakes</td><td><center><input type="checkbox" id="plan2" checked></center></td><td><center><input id="col2" type="color" value="#3D01FF"></center></td></tr>';
+            tsalcell += '<tr><td colspan="3">Gerar Scripts de Fakes</td><td><center><input type="checkbox" id="plan2" checked></center></td><td><center><input id="col2" type="color" value="#3D01FF"></center></td></tr>';
             tsalcell += '<tr><td colspan="3">&emsp;&emsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Ao Ativar esta Opção, a Tabela que você Gerou usando o <b> Design de Tabela </b> será Incluída no Código. <br> <br> Caso não tenha Gerado nenhuma Tabela, um Spoiler VAZIO será Incluído no seu lugar.</span></span>&nbsp;Incluir Designer de Tabela</td><td><center><input type="checkbox" id="plan3"></center></td><td><center><b><input id="col3" type="color" value="#B700C7"></center></td></tr>';
             tsalcell += '<tr><td >Incluir Lista de Aldeias</td><td><span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Defina como as Coordenadas serão Selecionadas e Incluídas na Lista de Aldeias do Plano.</span></span>&nbsp;';
             tsalcell += 'Método:&nbsp;<select id="tsal_plithos1" onchange="tsal_select1();"><option value="0">Todas as ldeias</option><option value="1">Selecionar Aldeias Extraídas</option><option value="2">Selecionar Aldeias que Dependem de Pontuação</option></select>';
@@ -295,8 +297,8 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tsalcell += '<span id="sel5" style="display:none;">Selecione o grupo Desejado de Aldeias Extraídas</span>';
             tsalcell += '<span id="sel6" style="display:none;">Pontuação Mínima:&nbsp;<input id="tsalk_p" type="number" value="5000" min="0"><br>Pontuação Máxima:&nbsp;<input id="tsalk_p1" type="number" value="13000" min="0"></span>';
             tsalcell += '</td><td><center><input type="checkbox" onchange="tsal_disable();" id="plan4" checked></center></td><td><center><input id="col4" type="color" value="#4EA700"></center></td></tr>';
-            tsalcell += '<tr><td colspan="3">Estatísticas e Mapas de Tribos</td><td><center><input type="checkbox"  id="plan5"></center></td><td><center><input id="col5" type="color" value="#FF7700"></center></td></tr>';
-            tsalcell += '<tr><td colspan="3">Estatísticas e Gráficos de Jogadores</td><td><center><input type="checkbox" id="plan6"></center></td><td><center><input id="col6" type="color" value="#4EA700"></center></td></tr>';
+            tsalcell += '<tr><td colspan="3">Estatísticas da Tribo</td><td><center><input type="checkbox"  id="plan5"></center></td><td><center><input id="col5" type="color" value="#FF7700"></center></td></tr>';
+            tsalcell += '<tr><td colspan="3">Estatísticas do Jogador</td><td><center><input type="checkbox" id="plan6"></center></td><td><center><input id="col6" type="color" value="#4EA700"></center></td></tr>';
             tsalcell += '<tr><td>Informação Adicional</td><td colspan="3"><center><b><span class="pulse1" id="tsal_extra1">Ative para Costumizar as opções Disponíveis</span></b></center><span id="tsal_extra" style="display:none">';
             tsalcell += '<br><center><b><u>Título</b></u></center><br>';
             tsalcell += 'Título:&emsp;<input type="text" size="30" id="t1" value="Descrição do Plano">';
@@ -316,17 +318,17 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tsalcell += '<br>Cor do Título:&emsp;<input id="col10" type="color" value="#B700C7">';
             tsalcell += '</span><td><center><input type="checkbox" onchange="tsal_extra();" id="plan7"></center></td></tr>';
             tsalcell += '<tr><td colspan="4">&emsp;&emsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Você precisa Ativar a <b> Lista da Aldeias </b> para Habilitar esta Opção</span></span>&nbsp;Adicionar [claim] em toda Coordenada na Lista de Aldeias</td><td><center><input type="checkbox" id="plan9"></center></td></tr>';
-            tsalcell += '<tr><td colspan="4">&emsp;&emsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Você precisa Ativar a <b> Lista da Aldeias </b> para Habilitar esta Opção</span></span>&nbsp;Adicionar <b>---> [player][/player]</b> em toda Coordenada na Lista de Aldeias</td><td><center><input type="checkbox" id="plan10"></center></td></tr>';
-            tsalcell += '<tr><td colspan="5"><center><a class="btn tsalbutton" onclick="tsalplano();">Abrir Planejamento</a></center></td></tr>';
-            tsalcell += "<tr><th colspan='5'><center><b><font color='black'><span class='tsaltooltip'><img style='cursor: help; height:13px; width:13px' src='graphic/questionmark.png' ><span class='tsalinfo'>O código a seguir é Compatível com o Fórum da Tribo e Bloco de Notas.</span></span>&nbsp;Código do Plano</font></b></th></tr>";
+            tsalcell += '<tr><td colspan="4">&emsp;&emsp;<span class="tsaltooltip"><img style="cursor: help; height:13px; width:13px" src="graphic/questionmark.png" ><span class="tsalinfo">Você precisa Ativar a <b> Lista da Aldeias </b> para Habilitar esta Opção</span></span>&nbsp;Adicionar [player][/player]</b> em toda Coordenada na Lista de Aldeias</td><td><center><input type="checkbox" id="plan10"></center></td></tr>';
+            tsalcell += '<tr><td colspan="5"><center><a class="btn tsalbutton" onclick="tsalplano();">Gerar Planejamento</a></center></td></tr>';
+            tsalcell += "<tr><th colspan='5'><center><b><font color='black'><span class='tsaltooltip'><img style='cursor: help; height:13px; width:13px' src='graphic/questionmark.png' ><span class='tsalinfo'>O Código a seguir é Compatível com o Fórum da Tribo e o Bloco de Notas.</span></span>&nbsp;Código do Plano</font></b></th></tr>";
             tsalcell += "<tr><td colspan='5'><center><textarea cols='80' rows='10' id='plano_per' onFocus='this.select()'></textarea></center></td></tr>";
             tsalcell += '<tr><td colspan="5"><center><span class="tsalkembed1"><img width="20px;" src="https://dl.dropboxusercontent.com/s/s9swak86tirwdpd/Tsalkapone.%20Warning.gif">&emsp;ATENÇÃO: Você não pode postar Textos/Tableas que contenham 1.000 ou mais <b>]</b> (Colchetes)</span></center></td></tr></table>';
 
 
             kontClick = '<div><a style="cursor:pointer" title="Mostrar TODAS as Aldeias" onclick="setCoords(kont[0]);">⚡Todas as Aldeias</a>';
-            for (i = 11; i < 100; i++) {
+            for (i=11;i<100;i++) {
                 if (kont[i] && kont[i].length > 0) {
-                    kontClick = kontClick + '<b> | </b><a style="cursor:pointer" title="Mostrar as Aldeias do Continente ' + i + '" onclick="setCoords(kont[' + i + '])">⚡ К' + i + '</a>';
+                    kontClick=kontClick+'<b> | </b><a style="cursor:pointer" title="Mostrar as Aldeias do Continente '+i+'" onclick="setCoords(kont['+i+'])">⚡ К'+i+'</a>';
                 }
             }
             kontClick = kontClick + "</div>";
@@ -337,27 +339,27 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             tsalkaponecell += '<input type="checkbox" id="tsalorder" onchange="tsal_align();">&nbsp;<font color=black><b>Ordem Vertical/Horizontal</b></font><br><br>';
             tsalkaponecell += '<table id=tsalmenu class="vis" style="width: 100%"><tbody>';
             tsalkaponecell += '<tr><th colspan="2"><font color="darkred"><b><center>## STRIKE OPÇÕES ##</center></b></font></th>';
-            tsalkaponecell += '<tr><td><font color="maroon"><b>Abre uma Lista com Vários Scripts</b></font></td><td><a class="btn tsalbutton" onclick="Tsalipeiros();">Scripts</a></td></tr>';
-            tsalkaponecell += '<tr><td><font color="maroon"><b>Abre um Planejador de Ataque Costumizável</b></font></td><td><span id="tsalplano1"><a class="btn tsalbutton" id="tsalplanbut1">Planejar Para ' + thePlayer + '</a></span><span style="display:none" id="tsalplano2"><a class="btn tsalbutton" id="tsalplanbut2">Esconder Configurações ' + thePlayer + '</a></span>';
-            tsalkaponecell += '<tr><td><font color="maroon"><b>Clique para Mostrar/Ocultar as Estatísticas e/ou Gráficos</b></font></td>';
+            tsalkaponecell += '<tr><td><font color="maroon"><b>⚡ Clique para Mostrar/Ocultar as Estatísticas e/ou Gráficos</b></font></td>';
             tsalkaponecell += '<td><span id="open1"><input type="button" value="Mostrar Gráficos e/ou Estatísticas" id="openf1" class="btn tsalbutton"></span><span id="close1" style="display:none">';
             tsalkaponecell += '<input class="btn tsalbutton" type="button" value="Ocultar Gráficos e/ou Estatísticas" id="closef1"></span></td></tr>';
-            tsalkaponecell += '<tr><td><font color="maroon"><b>Clique para Mostrar/Ocultar o Designer de Tabela</b></font></td>';
-            tsalkaponecell += '<td><span id="open2"><input type="button" value="Abrir Designer" id="openf2" class="btn tsalbutton"></span><span id="close2" style="display:none">';
-            tsalkaponecell += '<input class="btn tsalbutton" type="button" value="Fechar Designer" id="closef2"></span></td></tr>';
-            tsalkaponecell += '<tr><td><font color="maroon"><b>Clique para Mostrar/Ocultar a Lista de Aldeias</b></font></td>';
-            tsalkaponecell += '<td><span id="open3" style="display:none"><input type="button" value="Mostrar Lista" id="openf3" class="btn tsalbutton"></span><span id="close3" >';
-            tsalkaponecell += '<input class="btn tsalbutton" type="button" value="Ocultar Lista" id="closef3"></span></td></tr>';
-            tsalkaponecell += '<tr><td><font color="maroon"><b>Clique para Adicionar/Remover a Coluna de Reservas (claim) da Lista de Aldeias</b></font></td>';
+            tsalkaponecell += '<tr><td><font color="maroon"><b>⚡ Abre um Planejador de Ataque Costumizável (Fórum)</b></font></td><td><span id="tsalplano1"><a class="btn tsalbutton" id="tsalplanbut1">Abrir Plano de Ataque</a></span><span style="display:none" id="tsalplano2"><a class="btn tsalbutton" id="tsalplanbut2">Fechar Plano de Ataque</a></span>'; /* + thePlayer + */
+            tsalkaponecell += '<tr><td><font color="maroon"><b>⚡ Clique para Adicionar/Remover Coluna de Reservas</b></font></td>';
             tsalkaponecell += '<td><span id="open4" ><input type="button" value="Adicionar Colunas" id="openf4" class="btn tsalbutton"></span><span id="close4" style="display:none">';
             tsalkaponecell += '<input class="btn tsalbutton" type="button" value="Remover Colunas" id="closef4"></span></td></tr>';
+            tsalkaponecell += '<tr><td><font color="maroon"><b>⚡ Clique para Mostrar/Ocultar o Designer de Tabela</b></font></td>';
+            tsalkaponecell += '<td><span id="open2"><input type="button" value="Abrir Designer" id="openf2" class="btn tsalbutton"></span><span id="close2" style="display:none">';
+            tsalkaponecell += '<input class="btn tsalbutton" type="button" value="Fechar Designer" id="closef2"></span></td></tr>';
+            tsalkaponecell += '<tr><td><font color="maroon"><b>⚡ Clique para Mostrar/Ocultar a Lista de Aldeias</b></font></td>';
+            tsalkaponecell += '<td><span id="open3" style="display:none"><input type="button" value="Mostrar Lista" id="openf3" class="btn tsalbutton"></span><span id="close3" >';
+            tsalkaponecell += '<input class="btn tsalbutton" type="button" value="Ocultar Lista" id="closef3"></span></td></tr>';
+            tsalkaponecell += '<tr><td><font color="maroon"><b>⚡ Abre um Pop Up com Scripts Essenciais</b></font></td><td><a class="btn tsalbutton" onclick="Tsalipeiros();">Scripts</a></td></tr>';
             tsalkaponecell += '</tbody></table><span id="tsalplan" style="display:none"><hr>' + tsalcell + '<hr></span><span id="tsaldiag" style="display:none"><hr>' + graphs + '<hr></span><span id="tsaltab" style="display:none"><hr>' + tsalin + '<hr></span></div>';
 
             if (!document.getElementById('selectedone')) {
 
                 document.getElementById("villages_list").outerHTML = tsalkaponecell + document.getElementById("villages_list").outerHTML;
             } else {
-                UI.SuccessMessage('<font color=gold><b><center><u>## NOTIFICAÇÃO ##</u></center></b></font> <br><br> O Script Tribe & Player Stats está em Excecução', 5000)
+                UI.SuccessMessage('<font color=gold><b><center><u>## NOTIFICAÇÃO ##</u></center></b></font> <br><br> O Script Tribe & Player Stats está em Excecução', 5000);
             }
 
             $("#openf4").click(function() {
@@ -375,10 +377,10 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                 $('#villages_list tr').append($("<td>"));
                 $('#villages_list tr').append($("<td>"));
                 $('#villages_list tbody tr').each(function() {
-                    $(this).children('td:last').append($('<td></td>'))
+                    $(this).children('td:last').append($('<td></td>'));
                 });
                 $('#villages_list tbody tr').each(function() {
-                    $(this).children('td:last').append($('<td></td>'))
+                    $(this).children('td:last').append($('<td></td>'));
                 });
 
                 var tsalvils = C.split(' ');
@@ -388,9 +390,9 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                     var z = 'reservation_' + y[3];
 
                     /* CÉLULA DE RESERVA */
-                    document.getElementById("villages_list").rows[1 + i].cells[4].innerHTML = '<center><a href="' + game_data.link_base_pure + 'info_village&' + vals3[i] + '&action=reserve_village&h=' + game_data.csrf + '" target="blank"><img src="' + image_base + 'map/reserved_player.png"></a></center>';
+                    document.getElementById("villages_list").rows[1 + i].cells[3].innerHTML = '<center><a href="' + game_data.link_base_pure + 'info_village&' + vals3[i] + '&action=reserve_village&h=' + game_data.csrf + '" target="blank"><img src="' + image_base + 'map/reserved_player.png"></a></center>';
                     /* CÉLULA DE CANCELAR */
-                    document.getElementById("villages_list").rows[1 + i].cells[5].innerHTML = '<center><a href="' + game_data.link_base_pure + 'info_village&action=cancel_reservation&' + vals3[i] + '&h=' + game_data.csrf + '" target="blank"><img src="' + image_base + 'delete.png"></a></center>';
+                    document.getElementById("villages_list").rows[1 + i].cells[4].innerHTML = '<center><a href="' + game_data.link_base_pure + 'info_village&action=cancel_reservation&' + vals3[i] + '&h=' + game_data.csrf + '" target="blank"><img src="' + image_base + 'delete.png"></a></center>';
 
                 }
             });
@@ -448,7 +450,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                     points = [];
                 var noms_colonnes = [];
                 var tsal_close_tab = [];
-                tsal_close_tab[0] = "\n[/table]";
+                tsal_close_tab[0] = "[/*]\n[/table]";
                 var tsal_number1;
                 var tsal_coord1;
                 var tsal_pontoi1;
@@ -456,25 +458,25 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                 var tsal_claim1;
                 var tsal_newcol;
                 if (tsalcol.checked) {
-                    tsal_newcol = '[||][color=' + color5 + ']' + col_title + '[/color]';
+                    tsal_newcol = '[||]' + col_title + '';
                 } else {
                     tsal_newcol = '';
                 }
                 if (getIpoints.checked) {
-                    tsal_pontoi1 = '[||][color=' + color3 + ']Pontos[/color]';
+                    tsal_pontoi1 = '[||]Pontos';
                 } else {
                     tsal_pontoi1 = '';
                 }
                 if (getIreserv.checked) {
-                    tsal_res1 = '[||][color=' + color4 + ']Planejamento de Noblagem[/color]';
+                    tsal_res1 = '[||]Plano';
                 } else {
                     tsal_res1 = '';
                 }
 
-                tsal_coords1 = '[color=' + color2 + ']Aldeias[/color]';
+                tsal_coords1 = 'Aldeias';
 
                 if (tsalnum.checked) {
-                    tsal_number1 = '[color=' + color1 + ']Numeração[/color][||]';
+                    tsal_number1 = '[color=' + color1 + ']Nº[/color][||]';
                 } else {
                     tsal_number1 = '';
                 }
@@ -501,7 +503,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                         var tsal_col;
                         if (tsalcol.checked) {
                             if (tsalact1.checked) {
-                                tsal_col = s + '[player][/player]';
+                                tsal_col = s + '[player]PLAYER[/player]';
                             } else if (tsalact2.checked) {
                                 tsal_col = s + '[ally][/ally]';
                             } else {
@@ -516,21 +518,21 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                             tsal_pontoi = '';
                         }
                         if (getIreserv.checked) {
-                            tsal_res = s + ' [url=' + main_url + 'ally&mode=reservations][img]' + image_base + 'map/reserved_player.png[/img][/url] ';
+                            tsal_res = s + ' [url=' + game_data.link_base_pure + 'info_village&' + vals3[i] + '&action=reserve_village&h=' + game_data.csrf + '][img]' + image_base + 'map/reserved_player.png[/img][/url]' + ' / ' + '[url=' + game_data.link_base_pure + 'info_village&action=cancel_reservation&' + vals3[i] + '&h=' + game_data.csrf + '][img]' + image_base + 'delete.png[/img][/url]';
                         } else {
                             tsal_res = '';
                         }
                         if (tsalres.checked) {
                             tsal_coord = '[claim]' + tsal_cols[k] + '[/claim]';
                         } else {
-                            tsal_coord = ' ' + tsal_cols[k] + ' '
+                            tsal_coord = ' ' + tsal_cols[k] + ' ';
                         }
                         if (tsalnum.checked) {
-                            tsal_number = i + s;
+                            tsal_number = '⚡' + i + s;
                         } else {
                             tsal_number = '';
                         }
-                        format[0] += d + tsal_number + tsal_coord + tsal_pontoi + tsal_res + tsal_col;
+                        format[0] += d + tsal_number + tsal_coord + tsal_pontoi + tsal_res + tsal_col + '\n';
                     }
                     addText(noms_colonnes[0]);
                     addText(format[0]);
@@ -546,7 +548,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                         var tsal_col;
                         if (tsalcol.checked) {
                             if (tsalact1.checked) {
-                                tsal_col = s + '[player][/player]';
+                                tsal_col = s + '[player]PLAYER[/player]';
                             } else if (tsalact2.checked) {
                                 tsal_col = s + '[ally][/ally]';
                             } else {
@@ -561,21 +563,21 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                             tsal_pontoi = '';
                         }
                         if (getIreserv.checked) {
-                            tsal_res = s + ' [url=' + main_url + 'ally&mode=reservations][img]' + image_base + 'map/reserved_player.png[/img][/url] ';
+                            tsal_res = s + ' [url=' + game_data.link_base_pure + 'info_village&' + vals3[i] + '&action=reserve_village&h=' + game_data.csrf + '][img]' + image_base + 'map/reserved_player.png[/img][/url]' + ' / ' + '[url=' + game_data.link_base_pure + 'info_village&action=cancel_reservation&' + vals3[i] + '&h=' + game_data.csrf + '][img]' + image_base + 'delete.png[/img][/url]';
                         } else {
                             tsal_res = '';
                         }
                         if (tsalres.checked) {
                             tsal_coord = '[claim]' + tsal_cols[tsalvillages[k]] + '[/claim]';
                         } else {
-                            tsal_coord = ' ' + tsal_cols[tsalvillages[k]] + ' '
+                            tsal_coord = ' ' + tsal_cols[tsalvillages[k]] + ' ';
                         }
                         if (tsalnum.checked) {
-                            tsal_number = i + s;
+                            tsal_number = '⚡' + i + s;
                         } else {
                             tsal_number = '';
                         }
-                        format[0] += d + tsal_number + tsal_coord + tsal_pontoi + tsal_res + tsal_col;
+                        format[0] += d + tsal_number + tsal_coord + tsal_pontoi + tsal_res + tsal_col + '\n';
                     }
                     addText(noms_colonnes[0]);
                     addText(format[0]);
@@ -591,7 +593,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                         var tsal_col;
                         if (tsalcol.checked) {
                             if (tsalact1.checked) {
-                                tsal_col = s + '[player][/player]';
+                                tsal_col = s + '[player]PLAYER[/player]';
                             } else if (tsalact2.checked) {
                                 tsal_col = s + '[ally][/ally]';
                             } else {
@@ -606,21 +608,21 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                             tsal_pontoi = '';
                         }
                         if (getIreserv.checked) {
-                            tsal_res = s + ' [url=' + main_url + 'ally&mode=reservations][img]' + image_base + 'map/reserved_player.png[/img][/url] ';
+                            tsal_res = s + ' [url=' + game_data.link_base_pure + 'info_village&' + vals3[i] + '&action=reserve_village&h=' + game_data.csrf + '][img]' + image_base + 'map/reserved_player.png[/img][/url]' + '/' + '[url=' + game_data.link_base_pure + 'info_village&action=cancel_reservation&' + vals3[i] + '&h=' + game_data.csrf + '][img]' + image_base + 'delete.png[/img][/url]';
                         } else {
                             tsal_res = '';
                         }
                         if (tsalres.checked) {
                             tsal_coord = '[claim]' + tsal_cols[k] + '[/claim]';
                         } else {
-                            tsal_coord = ' ' + tsal_cols[k] + ' '
+                            tsal_coord = ' ' + tsal_cols[k] + ' ';
                         }
                         if (tsalnum.checked) {
-                            tsal_number = i + s;
+                            tsal_number = '⚡' + i + s;
                         } else {
                             tsal_number = '';
                         }
-                        format[0] += d + tsal_number + tsal_coord + tsal_pontoi + tsal_res + tsal_col;
+                        format[0] += d + tsal_number + tsal_coord + tsal_pontoi + tsal_res + tsal_col + '\n';
                     }
                     addText(noms_colonnes[0]);
                     addText(format[0]);
@@ -846,9 +848,9 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             } else {
                 tsalk3 = t_vils1;
             }
-            var tsal3in = "[spoiler=Script de Fakes Nº1 - Coordenada Aleatória]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
-            tsal3in += "\n\n[spoiler=Script de Fakes Nº2 - Coordenada Consecutiva (Contínua)]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=Código do Script][code]javascript:var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};var Tsalkapone_coords='" + tsalk + "';var config={Tsalkapone_target:'Tsalkapone',Tsalkapone_repeat:1,Tsalkapone_cookieID:'fake'};$.getScript('https://dl.dropboxusercontent.com/s/jyufjpwbdo8h0id/Tsalkapone.Fake_Script_No2_ek.js');void 0;[/code][/spoiler][/spoiler]";
-            tsal3in += "\n\n[spoiler=Script de Fakes Nº3 - Coordenada Aleatória, Aríete e Catapulta Apenas]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:0,spear:0,axe:0,archer:0,light:0,marcher:0,heavy:0};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
+            var tsal3in = "[spoiler=⚡ Script de Fakes Nº1 - Coordenada Aleatória]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=⚫ Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
+            tsal3in += "\n[spoiler=⚡ Script de Fakes Nº2 - Coordenada Consecutiva (Contínua)]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=⚫ Código do Script][code]javascript:var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:1,spear:1,axe:1,archer:1,light:1,marcher:1,heavy:1};var Tsalkapone_coords='" + tsalk + "';var config={Tsalkapone_target:'Tsalkapone',Tsalkapone_repeat:1,Tsalkapone_cookieID:'fake'};$.getScript('https://dl.dropboxusercontent.com/s/jyufjpwbdo8h0id/Tsalkapone.Fake_Script_No2_ek.js');void 0;[/code][/spoiler][/spoiler]";
+            tsal3in += "\n[spoiler=⚡ Script de Fakes Nº3 - Coordenada Aleatória, Aríete e Catapulta Apenas]\nAperte [b]T[/b] no seu Teclado (Após ativar o script) para saber mais sobre as Variáveis e Configurações\n\n[spoiler=⚫ Código do Script][code]javascript:var Tsalkapone_coords='" + tsalk + "';var Tsalkapone_scouts=5;var Tsalkapone_units_order={ram:1,catapult:1,sword:0,spear:0,axe:0,archer:0,light:0,marcher:0,heavy:0};$.getScript('https://dl.dropboxusercontent.com/s/n0945rwkzzqa4pl/Tsalkapone.Fake_Script_No1_ek.js');void 0;[/code][/spoiler][/spoiler]";
             var tsal3 = "";
             tsal3 += tsal3in;
             var plan1 = document.getElementById('plan1');
@@ -862,12 +864,16 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             var plan9 = document.getElementById('plan9');
             var plan10 = document.getElementById('plan10');
 
-
+            var serverTime = "[table][*][size=12][b]" + $("#serverDate").html() + "[/b] às [i]" + $("#serverTime").html() + "[/i][/size][/table][code][/code]";
             var docSource = "";
             docSource += "\n";
             if (plan8.checked) {
-                docSource += "[color=" + c11 + "][size=12][b]" + k5 + "[/b][/size][/color]\n";
-                docSource += "------------------------------------------------------------------------------------------------------\n";
+                docSource += "[table][*][size=16][player]" + thePlayer + "[/player][/size][/table]";
+                docSource += "" + serverTime + "";
+                docSource += "" + k5 + "\n";
+                docSource += "[color=#FFF8E6]_____________________________________[/color] [b][size=16][color=#700505]## OPERAÇÃO ##[/color][/size][/b]\n\n";
+                docSource += "[color=#FFF8E6]______________[/color] [b][size=12][color=#700505]Reivindique sua Reserva por Número ou Coordenada da Aldeia[/color][/size][/b]\n\n";
+                docSource += "_______________________________________________________________________________________________________\n";
             }
             if (plan7.checked) {
                 docSource += "[b][color=" + c7 + "]" + t1 + "[/color][/b]\n\n[b]" + k1 + "[/b]\n";
@@ -887,68 +893,74 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
 
 
             if (plan6.checked) {
-                docSource += "[color=" + c6 + "][i][b]Estatísticas de Jogadores[/b][/i][/color]\n[spoiler=Gráficos e/ou Estatísticas]\n";
-                docSource += '[spoiler=Gráficos]\n[spoiler=Estatísticas Gerais][img]http://' + pageurltsal3[0] + '.tribalwarsmap.com/en/graph/player/' + pageid + '[/img][/spoiler]\n';
-                docSource += '[spoiler=Gráfico de ODA][img]http://' + pageurltsal3[0] + '.tribalwarsmap.com/en/graph/oda_player/' + pageid + '[/img][/spoiler]\n';
-                docSource += '[spoiler=Gráfico de ODD][img]http://' + pageurltsal3[0] + '.tribalwarsmap.com/en/graph/odd_player/' + pageid + '[/img][/spoiler]\n';
-                docSource += "[spoiler=Gráfico de Pontuação][img]http://www" + urlPrefix + ".twstats.com/image.php?type=playerssgraph&graph=points&id=" + playerId + "&s=" + server + "[/img][/spoiler]\n";
-                docSource += "[spoiler=Gráfico de Aldeias][img]http://www" + urlPrefix + ".twstats.com/image.php?type=playerssgraph&graph=villages&id=" + playerId + "&s=" + server + "[/img][/spoiler][/spoiler]\n\n";
-                docSource += "[spoiler=Estatísticas]\n[color=" + c6 + "][b]Παίκτης:[/b][/color] [b][player]" + thePlayer + "[/player][/b]\n";
-                docSource += "[color=" + c6 + "][b]Pontuação:[/b][/color][b]" + thePoints + "[/b]\n";
-                docSource += "[color=" + c6 + "][b]Oponentes Derrotados:[/b][/color] [b]" + OD + "[/b]\n";
+                docSource += "\n[spoiler=⭐ Player Stats]\n";
+                docSource += "[table][**]⚫ [b]Nick:[/b][|][b][player]" + thePlayer + "[/player][/b]\n";
+                docSource += "[**]⚫ [b]Pontos:[/b][|][b]" + thePoints + "[/b]\n";
+                docSource += "[**]⚫ [b]OD Geral:[/b][|][b]" + OD + "[/b][color=#F4E4BC][LULU<3][/color][/table]\n";
+                docSource += '[spoiler=⚡ Gráficos]\n[spoiler=⚫ Gráfico Geral][img]http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/player/' + pageid + '[/img][/spoiler]\n';
+                docSource += '[spoiler=⚫ Gráfico de ODA][img]http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/oda_player/' + pageid + '[/img][/spoiler]\n';
+                docSource += '[spoiler=⚫ Gráfico de ODD][img]http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/odd_player/' + pageid + '[/img][/spoiler]\n';
+                docSource += '[spoiler=⚫ Gráfico de ODS][img]http://' + pageurltsal3[0] + '.tribalwarsmap.com/' + game_data.market + '/graph/ods_player/' + pageid + '[/img][/spoiler][/spoiler]\n';
+//                docSource += "[spoiler=Gráfico de Pontuação][img]http://www" + urlPrefix + ".twstats.com/image.php?type=playerssgraph&graph=points&id=" + playerId + "&s=" + server + "[/img][/spoiler]\n";
+//                docSource += "[spoiler=Gráfico de Aldeias][img]http://www" + urlPrefix + ".twstats.com/image.php?type=playerssgraph&graph=villages&id=" + playerId + "&s=" + server + "[/img][/spoiler][/spoiler]\n\n";
+                docSource += "[spoiler=⚡ Estatísticas]\n";
                 docSource += '[table][**]Tipo de Estatística[||]Link[/**]';
                 docSource += '[*]Perfil do TW~Stats[|][url=http://www' + urlPrefix + '.twstats.com/' + server + '/index.php?page=player&fi=1&id=' + playerId + '][img]https://dl.dropboxusercontent.com/s/pjv3zlroqyd84rj/Tsalkapone_openlink.png[/img][/url]';
                 docSource += '[*]Períodos de Conquistas[|][url=http://www' + urlPrefix + '.twstats.com/' + pageurltsal3[0] + '/index.php?page=player&id=' + pageid + '&mode=conquer_periods][img]https://dl.dropboxusercontent.com/s/pjv3zlroqyd84rj/Tsalkapone_openlink.png[/img][/url]';
                 docSource += '[*]Histórico de Atividade[|][url=http://www' + urlPrefix + '.twstats.com/' + pageurltsal3[0] + '/index.php?page=player&id=' + pageid + '&mode=history][img]https://dl.dropboxusercontent.com/s/pjv3zlroqyd84rj/Tsalkapone_openlink.png[/img][/url]';
                 docSource += '[*]Histórico de Conquistas[|][url=http://www' + urlPrefix + '.twstats.com/' + pageurltsal3[0] + '/index.php?page=player&mode=conquers&id=' + pageid + '][img]https://dl.dropboxusercontent.com/s/pjv3zlroqyd84rj/Tsalkapone_openlink.png[/img][/url]';
                 docSource += '[/table]';
-                docSource += "[/spoiler][/spoiler]\n\n";
+                docSource += "[/spoiler][/spoiler]";
             }
             if (plan5.checked) {
-                docSource += "[color=" + c5 + "][i][b]Estatísticas de Tribos[/b][/i][/color]\n[spoiler=Gráficos e/ou Estatísticas]\n";
-                docSource += "[color=" + c5 + "][b]Tribo:[/b][/color] " + ((tribeId > 0) ? ("[ally]" + theTribe + "[/ally]") : "[b]Sem Tribo[/b]") + "\n";
+                docSource += "\n[spoiler=⭐ Tribe Stats]\n";
+                docSource += "[table][**][b]Tribo:[/b][|]" + ((tribeId > 0) ? ("[ally]" + theTribe + "[/ally]") : "[b]Sem Tribo[/b]") + "[/table]\n";
                 if (tribeId > 0) {
                     docSource += '[table][**]Tipo de Estatística[||]Link[/**]';
                     docSource += "[*]Perfil do TW~Stats[|][url=http://www" + urlPrefix + ".twstats.com/" + server + "/index.php?page=tribe&id=" + tribeId + "][img]https://dl.dropboxusercontent.com/s/pjv3zlroqyd84rj/Tsalkapone_openlink.png[/img][/url]";
                     docSource += "[*]Mapa[|][url=http://www" + urlPrefix + ".twstats.com/" + server + "/index.php?page=map&tribe_0_id=" + tribeId + "&tribe_0_colour=ff00ff&player_0_id=" + playerId + "&player_0_colour=00aeff&zoom=100&centrex=500&centrey=500&nocache=1&fill=000000&grid=1][img]https://dl.dropboxusercontent.com/s/pjv3zlroqyd84rj/Tsalkapone_openlink.png[/img][/url]";
                 }
-                docSource += "[/spoiler]\n\n";
+                docSource += "[/spoiler]";
             }
 
-            docSource += "\n\n";
+//            docSource += "\n\n";
 
             if (plan4.checked) {
-                docSource += "[color=" + c4 + "][b]Lista de Aldeias[/b][/color]\n[spoiler=Lista de Aldeias]\n";
-                docSource += '[url=' + main_url + 'ally&mode=reservations]Planejamento de Noblagem[/url]\n\n';
+                docSource += "\n[spoiler=⭐ Aldeias]\n";
+                docSource += '[table][*]';
                 var tsalk5;
                 if (plan10.checked) {
-                    tsalk5 = ' ---> [player][/player]';
+                    tsalk5 = '<---> [player]RESERVA[/player]';
                 } else {
                     tsalk5 = '';
                 }
                 for (var i = 1, k = 0; i < tsalk3.length, k < tsalk3.length; i++, k++) {
                     if (plan1.checked) {
-                        docSource += '[b][color=' + c1 + ']' + i + '.[/color][/b] ' + (plan9.checked ? "[claim]" + tsalk3[k] + "[/claim]" : "" + tsalk3[k] + "") + tsalk5 + '\n';
+                        docSource += '';
+                        docSource += '⚡' + i + ' ~ ' + (plan9.checked ? "[claim]" + tsalk3[k] + "[/claim]" : "" + tsalk3[k] + "") + tsalk5 + '\n';
+                        docSource += '';
                     } else {
-                        docSource += i + '. ' + (plan9.checked ? "[claim]" + tsalk3[k] + "[/claim]" : "" + tsalk3[k] + "") + tsalk5 + '\n';
+                        docSource += '' + i + '' + (plan9.checked ? "[claim]" + tsalk3[k] + "[/claim]" : "" + tsalk3[k] + "") + tsalk5 + '\n';
                     }
                 }
-                docSource += "\n[/spoiler]";
-                docSource += "\n\n";
+                docSource += "[/*][/table]\n[/spoiler]";
+//                docSource += "\n\n";
             }
             if (plan3.checked) {
-                docSource += "[color=" + c3 + "][b]Tabela de Aldeias[/b][/color]\n[spoiler=Tabela de Aldeias]\n";
+                docSource += "\n[spoiler=⭐ Tabela]\n";
                 docSource += tsal_text;
-                docSource += '[/spoiler]\n\n';
+                docSource += '[/spoiler]';
             }
             if (!server.match(/uk/i) && plan2.checked) {
-                docSource += "[b][size=10][color=" + c2 + "]Fake scripts[/color][/size][/b]\n";
-                docSource += "[spoiler=Fake scripts]\n";
+                docSource += "\n";
+                docSource += "[spoiler=⭐ Scripts]\n";
                 docSource += tsal3;
                 docSource += "[/spoiler]";
             }
-            document.getElementById('plano_per').value = docSource;
 
+            docSource += '____________[b][code]HURRA!![/code][/b] [url=https://forum.tribalwars.com.br/index.php?threads/br-88-strike-team.335215/page-5#post-3658161][color=#700505][code]STRIKE Team[/code][/color][/url]';
+
+            document.getElementById('plano_per').value = docSource;
 
         }
 
@@ -1008,7 +1020,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
         var pageurltsal = window.location.href;
         var pageurl1 = pageurltsal.split("=");
         var pageid;
-        if (pageurl1[3] != undefined) {
+        if (pageurl1[3] !== undefined) {
             pageid = pageurl1[3];
         } else {
             pageid = game_data.player.ally;
@@ -1059,7 +1071,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
 
             $('#content_value').append(tsalkaponecell);
         } else {
-            UI.SuccessMessage('<font color=gold><b><center><u>## NOTIFICAÇÃO ##</u></center></b></font> <br><br> O Script Tribe & Player Stats está em Excecução', 5000)
+            UI.SuccessMessage('<font color=gold><b><center><u>## NOTIFICAÇÃO ##</u></center></b></font> <br><br> O Script Tribe & Player Stats está em Excecução', 5000);
         }
         /*==== register ====*/
         var script = {
@@ -1088,7 +1100,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
         var pageurltsal = window.location.href;
         var pageurl1 = pageurltsal.split("=");
         var pageid;
-        if (pageurl1[3] != undefined) {
+        if (pageurl1[3] !== undefined) {
             pageid = pageurl1[3];
         } else {
             pageid = game_data.player.ally;
@@ -1143,7 +1155,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
 
             $('#content_value table:first').after(tsalkaponecell);
         } else {
-            UI.SuccessMessage('<font color=gold><b><center><u>## NOTIFICAÇÃO ##</u></center></b></font> <br><br> O Script Tribe & Player Stats está em Excecução', 5000)
+            UI.SuccessMessage('<font color=gold><b><center><u>## NOTIFICAÇÃO ##</u></center></b></font> <br><br> O Script Tribe & Player Stats está em Excecução', 5000);
         }
         /*==== register ====*/
         var script = {
@@ -1157,7 +1169,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
         $.post(ScriptAPI.url, script);
 
         var tsalscript2 = "<script type='text/javascript'>var n1='Gráfico de Pontuação';var n2='Gráfico de Aldeias';var n3='Gráfico de ODA';var n4='Gráfico de ODD';";
-        tsalscript2 += "var n5='Definir Gráficos';var config={showPoints:true,showVillages:true,showODA:true,showODD:true,width:'180px',height:'96px'};"
+        tsalscript2 += "var n5='Definir Gráficos';var config={showPoints:true,showVillages:true,showODA:true,showODD:true,width:'180px',height:'96px'};";
             /* SCRIPT QUE PUXA OS GRÁFICOS */
         tsalscript2 += "(window.main||self).$.getScript('https://dl.dropboxusercontent.com/s/ym0j4zqccailn1e/Tsalkapone.Tribe_stats.js',function(){var script=new RankingStats();script.execute(config);});void(0);</script>";
         $("head").append(tsalscript2);
@@ -1213,12 +1225,12 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
 
         tsalinput += '<table class="vis" id="tsalpinakasmelwn2" width="100%"><tr><th><font color="darkred" width="30%"><b>Inserir Colunas Adicionais</b></font></th><th width="70%"><font color="darkred" ><b>Opções Costumizáveis</b></font></th></tr>';
 
-        tsalinput += '<tr><td><input  type="checkbox" id=tsalka1  style="cursor:pointer" >&emsp;<b><font color="maroon">Inserir uma Coluna com o código [ally] em cada Linha</font></b>&emsp;</td>';
-        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_filis" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_filis" value="TRIBO"><br><b><font color="maroon">Inserir código de Tribo ([ally]) em cada Linha desta Coluna:</font></b>&emsp;<input size="10" type="text" id="tsalfili" placeholder="TAG DAS TRIBOS"></td></tr>';
+        tsalinput += '<tr><td><input  type="checkbox" id=tsalka1  style="cursor:pointer" >&emsp;<b><font color="maroon">Inserir uma Coluna para a Fortaleza em cada Linha</font></b>&emsp;</td>';
+        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_filis" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_filis" value="⚡DOAR"><br><b><font color="maroon">Inserir Recursos para Doação em cada Linha desta Coluna:</font></b>&emsp;<input size="10" type="text" id="tsalfili" placeholder="Deixe em Branco"></td></tr>';
         tsalinput += '<tr><td><input  type="checkbox" id=tsalka3  style="cursor:pointer" >&emsp;<b><font color="maroon">Inserir uma Coluna com o código [player] em cada Linha</font></b></td>';
         tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_paikti" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_paikti" value="JOGADOR"><br><b><font color="maroon">Inserir o NICK do jogador em cada Linha desta Coluna:</font></b>&emsp;<input size="10" type="text" id="tsalpaiktis" placeholder="NOME DOS JOGADORES"></td></tr>';
         tsalinput += '<tr><td><input  type="checkbox" id=tsalka2  style="cursor:pointer" >&emsp;<b><font color="maroon">Adicionar Mais Colunas</font></b></td>';
-        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_ep" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_ep" value="GG"><br><b><font color="maroon">Quantidade:</font></b>&emsp;<input size="3" type="number" id=tsalstiles min="0"  placeholder="0">';
+        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_ep" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_ep" value="OK?"><br><b><font color="maroon">Quantidade:</font></b>&emsp;<input size="3" type="number" id=tsalstiles min="0"  placeholder="0">';
         tsalinput += '<br><b><font color="maroon">Cor de Texto das Linhas:</font></b>&emsp;<input id="tsal_xrwma_gr" type="color" value="#000000"><br><b><font color="maroon">Inserir Texto em cada Linha:</font></b>&emsp;<input size="50" type="text" id=tsalgrammes placeholder="Inserir Texto em cada Linha"></td></tr>';
         tsalinput += '<tr><td colspan="2"><center><input type="button" class="btn tsalbutton" value="Design de Tabela" id="Tsalyo"></center></td></tr>';
         tsalinput += '<tr><td colspan="2"><center><textarea cols="100" rows="10" id="result"></textarea></center></td></tr>';
@@ -1329,9 +1341,9 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
 
         $("#Tsalyo").click(function() {
             var t = "[table]\n";
-            t += "[**]" + (tsalkapone2.checked ? "[b][color=" + tsalxrwma2.value + "]" + tsalkeimeno2.value + "[/color][/b][||]" : "") + (tsalka1.checked ? "[b][color=" + tsalxrwma6.value + "]" + tsalkeimeno6.value + "[/color][/b][||]" : "");
+            t += "[**]" + (tsalkapone2.checked ? "[b][color=" + tsalxrwma2.value + "]" + tsalkeimeno2.value + "[/color][/b][||]" : "");
             t += (tsalkapone1.checked ? "[b][color=" + tsalxrwma1.value + "]" + tsalkeimeno1.value + "[/color][/b]" : "") + (tsalkapone3.checked ? "[||][b][color=" + tsalxrwma3.value + "]" + tsalkeimeno3.value + "[/color][/b]" : "");
-            t += (tsalkapone4.checked ? "[||][b][color=" + tsalxrwma4.value + "]" + tsalkeimeno4.value + "[/color][/b]" : "") + (tsalkapone5.checked ? "[||][b][color=" + tsalxrwma5.value + "]" + tsalkeimeno5.value + "[/color][/b]" : "");
+            t += (tsalkapone4.checked ? "[||][b][color=" + tsalxrwma4.value + "]" + tsalkeimeno4.value + "[/color][/b]" : "") + (tsalkapone5.checked ? "[||][b][color=" + tsalxrwma5.value + "]" + tsalkeimeno5.value + "[/color][/b]" : "") + (tsalka1.checked ? "[||][b][color=" + tsalxrwma6.value + "]" + tsalkeimeno6.value + "[/color][/b]" : "");
             t += (tsalka3.checked ? "[||][b][color=" + tsalxrwma7.value + "]" + tsalkeimeno7.value + "[/color][/b]" : "");
 
 
@@ -1341,8 +1353,8 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             }
             t += "[/**]\n";
             for (var j = 0, j1 = 0, j2 = 0, j3 = 0, j4 = 0; j < l.length, j1 < l1.length, j2 < l2.length, j3 < l3.length, j4 < l4.length; j++, j1++, j2++, j3++, j4++) {
-                t += "[*]" + (tsalkapone2.checked ? "" + l1[j1] + "[|]" : "") + (tsalka1.checked ? "[ally]" + Tsalkapone_φυλή.value + "[/ally][|]" : "");
-                t += (tsalkapone1.checked ? "[player]" + l[j] + "[/player]" : "") + (tsalkapone3.checked ? "[|][color=" + tsalxrwm2.value + "]" + l2[j2] + "[/color]" : "") + (tsalkapone4.checked ? "[|][color=" + tsalxrwm3.value + "]" + l3[j3] + "[/color]" : "") + (tsalkapone5.checked ? "[|][color=" + tsalxrwm4.value + "]" + l4[j4] + "[/color]" : "");
+                t += "[*]" + (tsalkapone2.checked ? "" + l1[j1] + "[|]" : "");
+                t += (tsalkapone1.checked ? "[player]" + l[j] + "[/player]" : "") + (tsalkapone3.checked ? "[|]" + l2[j2] +"" : "") + (tsalkapone4.checked ? "[|]" + l3[j3] + "" : "") + (tsalkapone5.checked ? "[|][b]" + l4[j4] + "[/b]" : "")+ (tsalka1.checked ? "[|][size=12]" + l4[j4]*5*7 +"K [/size][img]https://dsbr.innogamescdn.com/asset/e9e1997c/graphic//buildings/storage.png[/img]" : "");
                 t += (tsalka3.checked ? "[|][player]" + Tsalkapone_παίκτης.value + "[/player]" : "");
                 for (var i = 0; i < Tsalkapone_στήλη.value; i++) {
                     t += (tsalka2.checked ? "[|]" + tsalkeimeno9.value + "" : "");
