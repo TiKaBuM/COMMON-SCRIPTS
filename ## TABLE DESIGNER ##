@@ -7,7 +7,7 @@
 // @include            https://br*.tribalwars.com.br/*&screen=info_ally*
 // @include            https://br*.tribalwars.com.br/*&screen=info_member*
 // @include            https://br*.tribalwars.com.br/*&screen=info_player*
-// @version            4.3 (19/01/2018)
+// @version            4.4 (1/07/2019)
 // @updateURL          https://pastebin.com/raw/L7VMaxnt
 // @downloadURL        https://pastebin.com/raw/L7VMaxnt
 // @description        R2-D2 como o Melhor Robô-Suporte te Oferece Praticidade em qualquer Missão!
@@ -35,6 +35,7 @@
 4.1 - Script Completamente Traduzido Pt/Bt
 4.2 - Esquema de Cores Atualizado!
 4.3 - Códigos de Formatação de Tabela Otimizados!
+4.4 - Tabela de Tribos Otimizada!
 */
 // ==/UserScript==
 
@@ -1225,12 +1226,12 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
 
         tsalinput += '<table class="vis" id="tsalpinakasmelwn2" width="100%"><tr><th><font color="darkred" width="30%"><b>Inserir Colunas Adicionais</b></font></th><th width="70%"><font color="darkred" ><b>Opções Costumizáveis</b></font></th></tr>';
 
-        tsalinput += '<tr><td><input  type="checkbox" id=tsalka1  style="cursor:pointer" >&emsp;<b><font color="maroon">Inserir uma Coluna para a Fortaleza em cada Linha</font></b>&emsp;</td>';
-        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_filis" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_filis" value="⚡DOAR"><br><b><font color="maroon">Inserir Recursos para Doação em cada Linha desta Coluna:</font></b>&emsp;<input size="10" type="text" id="tsalfili" placeholder="Deixe em Branco"></td></tr>';
+        tsalinput += '<tr><td><input  type="checkbox" id=tsalka1  style="cursor:pointer" >&emsp;<b><font color="maroon">Inserir uma Coluna com o código [ally] em cada Linha</font></b>&emsp;</td>';
+        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_filis" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_filis" value="TRIBO"><br><b><font color="maroon">Inserir código de Tribo ([ally]) em cada Linha desta Coluna:</font></b>&emsp;<input size="10" type="text" id="tsalfili" placeholder="TAG DAS TRIBOS"></td></tr>';
         tsalinput += '<tr><td><input  type="checkbox" id=tsalka3  style="cursor:pointer" >&emsp;<b><font color="maroon">Inserir uma Coluna com o código [player] em cada Linha</font></b></td>';
         tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_paikti" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_paikti" value="JOGADOR"><br><b><font color="maroon">Inserir o NICK do jogador em cada Linha desta Coluna:</font></b>&emsp;<input size="10" type="text" id="tsalpaiktis" placeholder="NOME DOS JOGADORES"></td></tr>';
         tsalinput += '<tr><td><input  type="checkbox" id=tsalka2  style="cursor:pointer" >&emsp;<b><font color="maroon">Adicionar Mais Colunas</font></b></td>';
-        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_ep" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_ep" value="OK?"><br><b><font color="maroon">Quantidade:</font></b>&emsp;<input size="3" type="number" id=tsalstiles min="0"  placeholder="0">';
+        tsalinput += '<td><b><font color="maroon">Cor do Título:</font></b>&emsp;<input id="tsal_xrwma_ep" type="color" value="#0000ff"><br><b><font color="maroon">Título:</font></b>&emsp;<input size="10" type="text" id="tsal_keimeno_ep" value="GG"><br><b><font color="maroon">Quantidade:</font></b>&emsp;<input size="3" type="number" id=tsalstiles min="0"  placeholder="0">';
         tsalinput += '<br><b><font color="maroon">Cor de Texto das Linhas:</font></b>&emsp;<input id="tsal_xrwma_gr" type="color" value="#000000"><br><b><font color="maroon">Inserir Texto em cada Linha:</font></b>&emsp;<input size="50" type="text" id=tsalgrammes placeholder="Inserir Texto em cada Linha"></td></tr>';
         tsalinput += '<tr><td colspan="2"><center><input type="button" class="btn tsalbutton" value="Design de Tabela" id="Tsalyo"></center></td></tr>';
         tsalinput += '<tr><td colspan="2"><center><textarea cols="100" rows="10" id="result"></textarea></center></td></tr>';
@@ -1301,7 +1302,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                     l1.push(p1);
                 }
             });
-        };
+        }
         tsal();
 
 
@@ -1312,7 +1313,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                     l2.push(p2);
                 }
             });
-        };
+        }
         tsal2();
 
 
@@ -1324,7 +1325,7 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                     l3.push(p3);
                 }
             });
-        };
+        }
         tsal3();
 
 
@@ -1335,15 +1336,15 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
                     l4.push(p4);
                 }
             });
-        };
+        }
         tsal4();
 
 
         $("#Tsalyo").click(function() {
             var t = "[table]\n";
-            t += "[**]" + (tsalkapone2.checked ? "[b][color=" + tsalxrwma2.value + "]" + tsalkeimeno2.value + "[/color][/b][||]" : "");
+            t += "[**]" + (tsalkapone2.checked ? "[b][color=" + tsalxrwma2.value + "]" + tsalkeimeno2.value + "[/color][/b][||]" : "") + (tsalka1.checked ? "[b][color=" + tsalxrwma6.value + "]" + tsalkeimeno6.value + "[/color][/b][||]" : "");
             t += (tsalkapone1.checked ? "[b][color=" + tsalxrwma1.value + "]" + tsalkeimeno1.value + "[/color][/b]" : "") + (tsalkapone3.checked ? "[||][b][color=" + tsalxrwma3.value + "]" + tsalkeimeno3.value + "[/color][/b]" : "");
-            t += (tsalkapone4.checked ? "[||][b][color=" + tsalxrwma4.value + "]" + tsalkeimeno4.value + "[/color][/b]" : "") + (tsalkapone5.checked ? "[||][b][color=" + tsalxrwma5.value + "]" + tsalkeimeno5.value + "[/color][/b]" : "") + (tsalka1.checked ? "[||][b][color=" + tsalxrwma6.value + "]" + tsalkeimeno6.value + "[/color][/b]" : "");
+            t += (tsalkapone4.checked ? "[||][b][color=" + tsalxrwma4.value + "]" + tsalkeimeno4.value + "[/color][/b]" : "") + (tsalkapone5.checked ? "[||][b][color=" + tsalxrwma5.value + "]" + tsalkeimeno5.value + "[/color][/b]" : "");
             t += (tsalka3.checked ? "[||][b][color=" + tsalxrwma7.value + "]" + tsalkeimeno7.value + "[/color][/b]" : "");
 
 
@@ -1353,8 +1354,8 @@ if (!Tsalactive && !Tsalactive1 && !Tsalactive2) {
             }
             t += "[/**]\n";
             for (var j = 0, j1 = 0, j2 = 0, j3 = 0, j4 = 0; j < l.length, j1 < l1.length, j2 < l2.length, j3 < l3.length, j4 < l4.length; j++, j1++, j2++, j3++, j4++) {
-                t += "[*]" + (tsalkapone2.checked ? "" + l1[j1] + "[|]" : "");
-                t += (tsalkapone1.checked ? "[player]" + l[j] + "[/player]" : "") + (tsalkapone3.checked ? "[|]" + l2[j2] +"" : "") + (tsalkapone4.checked ? "[|]" + l3[j3] + "" : "") + (tsalkapone5.checked ? "[|][b]" + l4[j4] + "[/b]" : "")+ (tsalka1.checked ? "[|][size=12]" + l4[j4]*5*7 +"K [/size][img]https://dsbr.innogamescdn.com/asset/e9e1997c/graphic//buildings/storage.png[/img]" : "");
+                t += "[*]" + (tsalkapone2.checked ? "" + l1[j1] + "[|]" : "") + (tsalka1.checked ? "[ally]" + Tsalkapone_φυλή.value + "[/ally][|]" : "");
+                t += (tsalkapone1.checked ? "[player]" + l[j] + "[/player]" : "") + (tsalkapone3.checked ? "[|][color=" + tsalxrwm2.value + "]" + l2[j2] + "[/color]" : "") + (tsalkapone4.checked ? "[|][color=" + tsalxrwm3.value + "]" + l3[j3] + "[/color]" : "") + (tsalkapone5.checked ? "[|][color=" + tsalxrwm4.value + "]" + l4[j4] + "[/color]" : "");
                 t += (tsalka3.checked ? "[|][player]" + Tsalkapone_παίκτης.value + "[/player]" : "");
                 for (var i = 0; i < Tsalkapone_στήλη.value; i++) {
                     t += (tsalka2.checked ? "[|]" + tsalkeimeno9.value + "" : "");
